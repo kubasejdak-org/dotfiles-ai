@@ -28,6 +28,7 @@ install_nodejs() {
         # Install latest LTS Node.js
         nvm install --lts
         nvm use --lts
+        npm install -g npm@latest
 
         echo "✅ Node.js $(node --version) and npm $(npm --version) installed successfully"
     fi
@@ -39,7 +40,7 @@ install_claude() {
     if command_exists claude; then
         echo "✅ Claude Code is already installed ($(claude --version))"
     else
-        npm install -g @anthropic/claude-code
+        npm install -g @anthropic-ai/claude-code
         echo "✅ Claude Code installed successfully"
     fi
 }
