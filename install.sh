@@ -59,7 +59,11 @@ install_gemini() {
 # Function to install Claude Code configuration
 install_claude_config() {
     echo "📝 Installing Claude Code configuration..."
-    echo "⚠️  Claude Code config installation is not yet implemented"
+
+    claude mcp add --transport http context7 https://mcp.context7.com/mcp
+    claude mcp add --transport http microsoft-docs https://learn.microsoft.com/api/mcp
+    claude mcp add --transport http notion https://mcp.notion.com/mcp
+
     echo "    This will create symbolic links for:"
     echo "    - CLAUDE.md -> ~/.config/claude/CLAUDE.md"
     echo "    - Other Claude-specific configurations"
