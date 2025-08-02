@@ -4,12 +4,12 @@ set -e
 
 echo "🚀 Installing AI development tools..."
 
-# Function to check if a command exists
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# Function to install Node.js using nvm (recommended method)
 install_nodejs() {
     echo "📦 Installing Node.js..."
 
@@ -34,7 +34,6 @@ install_nodejs() {
     fi
 }
 
-# Function to install Claude Code
 install_claude() {
     echo "📦 Installing Claude Code..."
     if command_exists claude; then
@@ -45,7 +44,6 @@ install_claude() {
     fi
 }
 
-# Function to install Gemini CLI
 install_gemini() {
     echo "📦 Installing Gemini CLI..."
     if command_exists gemini; then
@@ -56,32 +54,29 @@ install_gemini() {
     fi
 }
 
-# Function to install Claude Code configuration
 install_claude_config() {
     echo "📝 Installing Claude Code configuration..."
 
-    claude mcp add --transport http context7 https://mcp.context7.com/mcp
-    claude mcp add --transport http microsoft-docs https://learn.microsoft.com/api/mcp
-    claude mcp add --transport http notion https://mcp.notion.com/mcp
+    # Remote MCP servers
+    claude mcp add --transport http context7 https://mcp.context7.com/mcp || true
+    claude mcp add --transport http microsoft-docs https://learn.microsoft.com/api/mcp || true
+    claude mcp add --transport http notion https://mcp.notion.com/mcp || true
 
-    echo "    This will create symbolic links for:"
-    echo "    - CLAUDE.md -> ~/.config/claude/CLAUDE.md"
-    echo "    - Other Claude-specific configurations"
+    # Local MCP servers
+    claude mcp add filesystem npx @modelcontextprotocol/server-filesystem ~/Downloads ~/nas ~/projects /tmp || true
+    claude mcp add puppeteer npx @modelcontextprotocol/server-puppeteer || true
+
+    # Install agents configuration using absolute path
+    ln -sf "${SCRIPT_DIR}/claude/agents" ~/.claude
 }
 
-# Function to install Gemini CLI configuration
 install_gemini_config() {
     echo "📝 Installing Gemini CLI configuration..."
-    echo "⚠️  Gemini CLI config installation is not yet implemented"
-    echo "    This will create symbolic links for:"
-    echo "    - GEMINI.md -> ~/.config/gemini/GEMINI.md"
-    echo "    - Other Gemini-specific configurations"
+    echo "⚠️ Gemini CLI config installation is not yet implemented"
 }
 
-# Install Node.js
 install_nodejs
 
-# Install AI tools and their configurations
 install_claude
 install_claude_config
 
@@ -94,7 +89,3 @@ echo "Available commands:"
 echo "  - claude: Claude Code"
 echo "  - gemini: Gemini CLI"
 echo ""
-echo "Next steps:"
-echo "  1. Run 'claude auth' to authenticate with Claude"
-echo "  2. Run 'gemini auth' to authenticate with Gemini"
-echo "  3. Configure your AI tools as needed"
