@@ -46,6 +46,7 @@ Each book is stored in 3 different places:
   - Authors are listed in a format `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
   - Edition information is optionally appended as `- Nth edition` (only for 2nd edition and higher or "revised" if
     explicitly mentioned in metadata)
+  - Do not use any whitespace characters except for space, remove them if necessary
   - Examples of good filenames:
     - `AI and Machine Learning for Coders - Laurence Moroney`
     - `C++ Primer Plus - Stephen Prata - 6th edition`
@@ -75,11 +76,13 @@ Each book is stored in 3 different places:
 
 - **Books Database**: Each book has its own unique entry in my Notion account
   - Books are kept in `Books` database as one entry for each book title
+  - Use Notion MCP when accessing Notion databases
   - Each book which I physically have (true if present in digital library) must have `Own` property set to `true`
   - `Title` and `Author` must use the same wording as the filename, with the following difference:
     - `Title` contains both title and edition (if present): `Title - Nth edition`
     - `Author` is the same as in filename
   - `Status` must be `Inbox` - I will manually change it after verification
+  - `Published year` and `Total pages` must be set according to the generated metadata report (described below)
 
 ### Kindle
 
@@ -97,9 +100,23 @@ Each book is stored in 3 different places:
 3. **Directory Organization**: Create individual directories for each book using the same name as the final filename
    (without extension). Place all formats of the same book within its dedicated directory.
 4. **Metadata Verification**: When metadata is unclear or missing, cross-reference with trusted sources like Amazon,
-   Google Books, or Goodreads to ensure accuracy. Always verify author names, correct titles, and edition information.
+   Google Books or Goodreads to ensure accuracy. Always verify author names, correct titles, and edition information.
 5. **Duplicate Detection**: Identify multiple formats of the same book and group them appropriately. Handle cases where
    slight title variations exist for the same work.
+6. **Generate Metadata Report**: Create a `metadata_report.yml` YAML report file with entry for each modified book
+   with the following structure:
+
+   ```yaml
+   books:
+   - title: <book title>
+     authors: <book authors>
+     pages: <pages count>
+     publish_year: <publish year>
+     original_fileame: <filename before changes>
+     data_src: <list of source URLs from which additional metadata was extracted>
+   ```
+
+  Do NOT add any extra fields or omit the onces specified above. Search the web until you can fill all remaining info.
 
 ## Quality Control Process
 
@@ -108,6 +125,9 @@ Each book is stored in 3 different places:
 - Confirm edition numbers through multiple sources when possible
 - Ensure directory names exactly match filenames (minus extension)
 - Handle special cases like anthologies, collections, and multi-volume works appropriately
+- When operating on given directory, create two files (`before.txt` anf `after.txt`) containing `sha256` sums (sorted by
+  SHA sum) of each touched book file before and after modifications to confirm that no book was lost in the process
+- Do not leave any extra temporary created files within working directory
 
 ## Error Handling
 

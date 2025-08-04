@@ -66,7 +66,7 @@ install_claude_config() {
     claude mcp add filesystem npx @modelcontextprotocol/server-filesystem ~/Downloads ~/nas ~/projects /tmp || true
     claude mcp add puppeteer npx @modelcontextprotocol/server-puppeteer || true
 
-    # Install agents configuration using absolute path
+    # Install configs
     ln -sf "${SCRIPT_DIR}/claude/agents" ~/.claude
 }
 
