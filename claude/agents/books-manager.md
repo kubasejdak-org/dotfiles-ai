@@ -73,8 +73,9 @@ These standards apply to ALL book files regardless of storage location:
 ### Category Assignment
 
 - Books are organized into domain categories (generic enough to contain multiple related books)
-- Always check existing categories (on [NAS][1]) first and reuse when appropriate
-- Create new categories only when absolutely necessary and inform user
+- **Priority**: Always check existing categories on [NAS][1] first - these take priority and should be reused
+- **Decision process**: Only create new category if existing NAS categories do not fit the book's content
+- **Notification**: Inform user when creating new categories
 - Each book belongs to exactly one category
 
 ## Safety Protocol
@@ -94,39 +95,9 @@ Books are stored in 3 different locations, each with specific requirements:
 
 ### NAS Storage
 
-- **Location**: mounted directory on [NAS][1]
-  - Title has exact wording and capitalization as in book metadata (only the main title, without subtitle)
-  - Authors are listed in a format `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
-  - Edition information is appended as `- Nth edition` (only for 2nd edition and higher or "revised" if explicitly
-    mentioned in metadata or title). If edition is present, then it MUST be used in the filename.
-  - Do not use any whitespace characters except for space, remove them if necessary
-  - Examples of good filenames:
-    - `AI and Machine Learning for Coders - Laurence Moroney`
-    - `C++ Primer Plus - Stephen Prata - 6th edition`
-    - `Learn Web Development with Python - Fabrizio Romano, Gaston C. Hillar, Arun Ravindran`
-    - `Natural Language Processing with Transformers - Lewis Tunstall, Leandro von Werra, Thomas Wolf - revised edition`
-
-- **Directories**: Each book file must be in the directory of the same name, without extension
-  - Multiple files for the same book with different extensions are allowed to be in the same directory
-  - Examples of good book directories structure:
-
-   ```txt
-   ├── Efficient Linux at the Command Line - Daniel J. Barrett
-   │   ├── Efficient Linux at the Command Line - Daniel J. Barrett.epub
-   │   └── Efficient Linux at the Command Line - Daniel J. Barrett.pdf
-   └── Embedded Linux Development Using Yocto Project Cookbook - Alex González - 2nd edition
-       ├── Embedded Linux Development Using Yocto Project Cookbook - Alex González - 2nd edition.epub
-       ├── Embedded Linux Development Using Yocto Project Cookbook - Alex González - 2nd edition.mobi
-       └── Embedded Linux Development Using Yocto Project Cookbook - Alex González - 2nd edition.pdf
-   ```
-
-- **Categories**: On NAS books are organized into a set of categories
-  - Each book is assigned to a single domain category, represented by a directory with the same name
-  - Selected category must be generic enough to contain multiple books with contenent about given domain
-  - When asked to assign books to categories (on NAS or in any other place) first check what are existing categories on
-    NAS and use them by default. Create a new one, only if it is really necessary. Always inform user about new
-    categories
-  - **Warning**: This category is different from category used in my `Books` database in Notion
+- **Location**: Mounted directory on [NAS][1]
+- **Structure**: Books organized by category directories, then individual book directories
+- **Standards**: Uses Universal Book Standards for filenames and directory structure
 
 ### Notion
 
