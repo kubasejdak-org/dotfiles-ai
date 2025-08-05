@@ -68,6 +68,9 @@ install_claude_config() {
 
     # Install configs
     ln -sf "${SCRIPT_DIR}/claude/agents" ~/.claude
+    ln -sf "${SCRIPT_DIR}/claude/CLAUDE.md" ~/.claude
+    ln -sf "${SCRIPT_DIR}/claude/commands" ~/.claude
+    ln -sf "${SCRIPT_DIR}/claude/settings.json" ~/.claude
 }
 
 install_gemini_config() {
