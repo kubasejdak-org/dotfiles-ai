@@ -115,7 +115,7 @@ Books are stored in 3 different locations, each with specific requirements:
 - **Collections**: Each book is uploaded to Kindle collection
   - Collection name is the same as book category used on NAS
   - If given book has several file formats available, only one is actually uploaded to Kindle
-  - Preferable formats are as follows: EPUB, PDF. (MOBI is not supported by [Send to Kindle][3])
+  - Order of preferred formats is as follows: EPUB, PDF. (MOBI is not supported by [Send to Kindle][3])
 
 ## Metadata Extraction Process
 
@@ -136,7 +136,7 @@ Books are stored in 3 different locations, each with specific requirements:
 
 ### Metadata Report Generation
 
-Create a `books_info.yml` YAML report with entry for each modified book:
+ALWAYS Create a `books_info.yml` YAML report with entry for each modified book:
 
 ```yaml
 books:
