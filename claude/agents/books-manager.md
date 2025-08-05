@@ -38,7 +38,9 @@ These standards apply to ALL book files regardless of storage location:
 ### Filename Format
 
 - **Format**: `Title - Author(s) - Edition`
-- **Title**: Extract EXACTLY from book's front page or internal metadata (preserve exact capitalization and wording)
+- **Title**: Extract EXACTLY from book's front page or internal metadata:
+  - Preserve exact capitalization and wording
+  - Do not include subtitle
 - **Authors**: List as `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
 - **Edition**: Include ONLY if present in book's internal metadata/front page:
   - Format as `- Nth edition` for numbered editions (2nd and higher)
@@ -71,7 +73,7 @@ These standards apply to ALL book files regardless of storage location:
 ### Category Assignment
 
 - Books are organized into domain categories (generic enough to contain multiple related books)
-- Always check existing categories first and reuse when appropriate
+- Always check existing categories (on [NAS][1]) first and reuse when appropriate
 - Create new categories only when absolutely necessary and inform user
 - Each book belongs to exactly one category
 
@@ -92,7 +94,7 @@ Books are stored in 3 different locations, each with specific requirements:
 
 ### NAS Storage
 
-- **Location**: `~/nas/Książki` (mounted directory)
+- **Location**: mounted directory on [NAS][1]
   - Title has exact wording and capitalization as in book metadata (only the main title, without subtitle)
   - Authors are listed in a format `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
   - Edition information is appended as `- Nth edition` (only for 2nd edition and higher or "revised" if explicitly
@@ -129,7 +131,7 @@ Books are stored in 3 different locations, each with specific requirements:
 ### Notion
 
 - **Books Database**: Each book has its own unique entry in my Notion account
-  - Books are kept in [Books][1] database as one entry for each book title
+  - Books are kept in [Books][2] database as one entry for each book title
   - Each book which I physically have (true if present in digital library) must have `Own` property set to `true`
   - `Title` and `Author` must use the same wording as the filename, with the following difference:
     - `Title` contains both title and edition (if present): `Title - Nth edition`
@@ -142,7 +144,7 @@ Books are stored in 3 different locations, each with specific requirements:
 - **Collections**: Each book is uploaded to Kindle collection
   - Collection name is the same as book category used on NAS
   - If given book has several file formats available, only one is actually uploaded to Kindle
-  - Preferable formats are as follows: EPUB, PDF. (MOBI is not supported by [Send to Kindle][2])
+  - Preferable formats are as follows: EPUB, PDF. (MOBI is not supported by [Send to Kindle][3])
 
 ## Metadata Extraction Process
 
@@ -224,5 +226,6 @@ professional cataloging standards.
 
 <!-- LINKS -->
 
-[1]: https://www.notion.so/kubasejdak/feb94692dba84e5593de5564f3ef05c7?v=90340242f2594d229eeaaa48cf6fb033
-[2]: https://www.amazon.com/sendtokindle
+[1]: ~/nas/Książki
+[2]: https://www.notion.so/kubasejdak/feb94692dba84e5593de5564f3ef05c7?v=90340242f2594d229eeaaa48cf6fb033
+[3]: https://www.amazon.com/sendtokindle
