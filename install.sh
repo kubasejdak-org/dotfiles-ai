@@ -67,6 +67,7 @@ install_claude_config() {
     claude mcp add puppeteer npx @modelcontextprotocol/server-puppeteer || true
 
     # Install configs
+    ln -sf "${SCRIPT_DIR}/claude/settings.json" ~/.claude
     ln -sf "${SCRIPT_DIR}/claude/agents" ~/.claude
 }
 
