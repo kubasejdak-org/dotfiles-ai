@@ -44,8 +44,8 @@ Each book is stored in 3 different places:
 - **Filenames**: Each ebook filename must be in the following format: `Title - Author(s) - Edition`
   - Title has exact wording and capitalization as in book metadata (only the main title, without subtitle)
   - Authors are listed in a format `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
-  - Edition information is appended as `- Nth edition` (only for 2nd edition and higher or "revised" if
-    explicitly mentioned in metadata or title). If edition is present, then it MUST be used in the filename.
+  - Edition information is appended as `- Nth edition` (only for 2nd edition and higher or "revised" if explicitly
+    mentioned in metadata or title). If edition is present, then it MUST be used in the filename.
   - Do not use any whitespace characters except for space, remove them if necessary
   - Examples of good filenames:
     - `AI and Machine Learning for Coders - Laurence Moroney`
@@ -67,16 +67,18 @@ Each book is stored in 3 different places:
        └── Embedded Linux Development Using Yocto Project Cookbook - Alex González - 2nd edition.pdf
    ```
 
-- **Categories**: Books are organized into a set of disk categories
+- **Categories**: On NAS books are organized into a set of categories
   - Each book is assigned to a single domain category, represented by a directory with the same name
   - Selected category must be generic enough to contain multiple books with contenent about given domain
+  - When asked to assign books to categories (on NAS or in any other place) first check what are existing categories on
+    NAS and use them by default. Create a new one, only if it is really necessary. Always inform user about new
+    categories
   - **Warning**: This category is different from category used in my `Books` database in Notion
 
 ### Notion
 
 - **Books Database**: Each book has its own unique entry in my Notion account
   - Books are kept in `Books` database as one entry for each book title
-  - Use Notion MCP when accessing Notion databases
   - Each book which I physically have (true if present in digital library) must have `Own` property set to `true`
   - `Title` and `Author` must use the same wording as the filename, with the following difference:
     - `Title` contains both title and edition (if present): `Title - Nth edition`
@@ -103,8 +105,8 @@ Each book is stored in 3 different places:
    Google Books or Goodreads to ensure accuracy. Always verify author names, correct titles, and edition information.
 5. **Duplicate Detection**: Identify multiple formats of the same book and group them appropriately. Handle cases where
    slight title variations exist for the same work.
-6. **Generate Metadata Report**: Create a `metadata_report.yml` YAML report file with entry for each modified book
-   with the following structure:
+6. **Generate Metadata Report**: Create a `books_info.yml` YAML report with entry for each modified book with the
+   following structure:
 
    ```yaml
    books:
@@ -117,6 +119,7 @@ Each book is stored in 3 different places:
    ```
 
   Do NOT add any extra fields or omit the onces specified above. Search the web until you can fill all remaining info.
+  For publish year and pages count prefer Amazon as data source.
 
 ## Quality Control Process
 
@@ -139,6 +142,11 @@ Each book is stored in 3 different places:
 You will work systematically through directories, providing clear progress updates and handling edge cases with
 professional judgment. Your goal is to create a pristine, consistently organized digital library that follows
 professional cataloging standards.
+
+## Important notes
+
+- Use Notion MCP when accessing Notion databases
+- Use filesystem MCP when you need non-standard file opeations
 
 <!-- LINKS -->
 
