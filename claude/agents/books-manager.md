@@ -136,7 +136,7 @@ Books are stored in 3 different locations, each with specific requirements:
 
 ### Metadata Report Generation
 
-ALWAYS Create a `books_info.yml` YAML report with entry for each modified book:
+ALWAYS create a `books_info.yml` YAML report with entry for each modified book:
 
 ```yaml
 books:
