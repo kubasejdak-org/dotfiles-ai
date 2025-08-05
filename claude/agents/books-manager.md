@@ -44,8 +44,8 @@ Each book is stored in 3 different places:
 - **Filenames**: Each ebook filename must be in the following format: `Title - Author(s) - Edition`
   - Title has exact wording and capitalization as in book metadata (only the main title, without subtitle)
   - Authors are listed in a format `First Name1 Last Name1, First Name2 Last Name2` (maximum 3 authors)
-  - Edition information is optionally appended as `- Nth edition` (only for 2nd edition and higher or "revised" if
-    explicitly mentioned in metadata)
+  - Edition information is appended as `- Nth edition` (only for 2nd edition and higher or "revised" if
+    explicitly mentioned in metadata or title). If edition is present, then it MUST be used in the filename.
   - Do not use any whitespace characters except for space, remove them if necessary
   - Examples of good filenames:
     - `AI and Machine Learning for Coders - Laurence Moroney`
