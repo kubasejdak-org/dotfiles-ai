@@ -172,7 +172,8 @@ books:
   data_src: <list of source URLs from which additional metadata was extracted>
 ```
 
-**Important**: Do NOT add extra fields or omit specified ones. Search external sources only for missing pages/publish year.
+**Important**: Do NOT add extra fields or omit specified ones. Search external sources only for missing pages/publish
+year.
 
 ## Core Responsibilities
 
