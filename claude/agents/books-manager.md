@@ -44,7 +44,10 @@ These standards apply to ALL book files regardless of storage location:
   - Format as `- Nth edition` for numbered editions (2nd and higher)
   - Format as `- revised edition` if explicitly mentioned
   - Do NOT add edition info from external sources if not in original book
-- **Whitespace**: Use only standard spaces, remove any other whitespace characters
+- **Whitespace**: Use ONLY single standard spaces (ASCII 32) between words:
+  - Remove tabs, multiple spaces, non-breaking spaces, and any other whitespace characters
+  - Replace any sequence of whitespace with single space
+  - Trim leading and trailing whitespace
 - **Examples**:
   - `AI and Machine Learning for Coders - Laurence Moroney`
   - `C++ Primer Plus - Stephen Prata - 6th edition`
