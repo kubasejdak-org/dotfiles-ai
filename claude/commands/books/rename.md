@@ -1,6 +1,9 @@
-# Organize eBooks and PDFs
+# Rename eBooks and PDFs
 
-Organize eBooks and PDFs in current directory using books-manager subagent. Follow the process below:
+Adjust filenames of eBooks and PDFs in current directory using books-manager subagent to match my desired convention and
+group them into book directories (one for each title). Do not categorize them. Use filesystem MCP if needed.
+
+Follow the process below:
 
 1. Make a backup of current directory called `<directory_name>_backup`
 2. Launch subagent
@@ -9,5 +12,3 @@ Organize eBooks and PDFs in current directory using books-manager subagent. Foll
    count and their values. Filename will obviously be different.
 5. If those files differ then it means that some books were lost in the process and you need to at least list what is
    missing.
-
-Use filesystem MCP if needed.
