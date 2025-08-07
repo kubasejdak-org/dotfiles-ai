@@ -4,5 +4,5 @@ Use books-manager subagent to rename eBooks and PDFs in current directory to mat
 
 Requirements:
 
-- Create metadata report (`books_info.yml`) with extracted book information
+- Create metadata report with extracted book information
 - Use filesystem MCP if needed for file operations
