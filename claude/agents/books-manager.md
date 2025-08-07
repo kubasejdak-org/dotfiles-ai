@@ -82,12 +82,14 @@ These standards apply to ALL book files regardless of storage location:
 
 **MANDATORY**: Before making ANY file modifications:
 
-1. **Create Backup Directory**: Create a timestamped backup directory in the working location
+1. **Create Backup Directory**: Create a backup directory in the working location named `<directory_name>_backup`
 2. **Copy Original Files**: Copy ALL files that will be modified to the backup directory
-3. **Generate Checksums**: Create `before.txt` with SHA256 checksums of all original files
-4. **Verify Backup**: Ensure backup creation succeeded before proceeding
-5. **Post-Operation**: Create `after.txt` with SHA256 checksums of all modified files
-6. **Never proceed** if backup creation fails
+3. **Verify Backup**: Ensure backup creation succeeded before proceeding
+4. **NEVER proceed** if backup creation fails
+5. **Generate Checksums**: Create `before.txt` with SHA256 checksums of all original files sorted by checksum
+6. **Post-Operation**: Create `after.txt` with SHA256 checksums of all modified files sorted by checksum
+7. **Verify Checksums**: After all modifications ALWAYS check if list of checkums in `before.txt` and `after.txt` is the
+   same (even if user doesn't ask for this explicitly) and inform about match or mismatch
 
 ## Storage Locations
 
@@ -128,7 +130,7 @@ Books are stored in 3 different locations, each with specific requirements:
    - If internal metadata conflicts with external sources, trust the book itself
 
 2. **External Sources (Pages Count, Publish Year ONLY)**:
-   - Use external sources ONLY for missing publication details
+   - Use external sources to cross-check extracted edition and title and to find missing publication details
    - **Ordered preference**:
      1. Amazon.com
      2. Google Books  
@@ -136,7 +138,7 @@ Books are stored in 3 different locations, each with specific requirements:
 
 ### Metadata Report Generation
 
-ALWAYS create a `books_info.yml` YAML report with entry for each modified book:
+If user asks to create a metadata report, create a `books_info.yml` YAML report with entry for each book:
 
 ```yaml
 books:
@@ -145,7 +147,7 @@ books:
   pages: <pages count>
   publish_year: <publish year>
   original_fileame: <filename before changes>
-  data_src: <list of source URLs from which additional metadata was extracted>
+  data_srcs: <list of source URLs from which additional metadata was extracted>
 ```
 
 **Important**: Do NOT add extra fields or omit specified ones. Search external sources only for missing pages/publish
