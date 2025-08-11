@@ -1,6 +1,7 @@
 # C++ Code Generation Rules
 
-This document defines the standards for generating high-quality, production-ready C++ code across all C++ agents and tools.
+This document defines the standards for generating high-quality, production-ready C++ code across all C++ agents and
+tools.
 
 ## Core Principles
 
@@ -24,7 +25,8 @@ This document defines the standards for generating high-quality, production-read
 ### Code Style
 
 - **Consistency**: Follow existing codebase conventions
-- **Operator Alternatives**: Prefer operator overloads over explicit function calls when available for improved readability:
+- **Operator Alternatives**: Prefer operator overloads over explicit function calls when available for improved
+  readability:
   - Use `*optional_value` instead of `optional_value.value()` for optional dereferencing
   - Use `*smart_ptr` instead of `smart_ptr.get()` for pointer dereferencing
   - Use `container[index]` instead of `container.at(index)` when bounds are guaranteed
