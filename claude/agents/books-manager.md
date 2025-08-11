@@ -1,7 +1,9 @@
 ---
 name: books-manager
 description: >
-  Use this agent for digital book management tasks: organizing files, researching book information, answering questions about book collections, and creating metadata reports. Works with any directory or as standalone research tool. Examples:
+  Use this agent for digital book management tasks: organizing files, researching book information, answering questions
+  about book collections, and creating metadata reports. Works with any directory or as standalone research tool.
+  Examples:
   <example>
     Context: User has a messy downloads folder with various ebook files that need organization. user: 'I have about 50
     ebook files in my Downloads folder that are all named randomly. Can you help me organize them?' assistant: 'I'll use
@@ -13,15 +15,21 @@ description: >
     </commentary>
   </example>
   <example>
-    Context: User wants to research a book they're considering buying. user: 'Can you look up information about "Clean Architecture" by Robert Martin? I want to know the page count and publication year.' assistant: 'I'll use the books-manager agent to research "Clean Architecture" and find the publication details you need.'
+    Context: User wants to research a book they're considering buying. user: 'Can you look up information about "Clean
+    Architecture" by Robert Martin? I want to know the page count and publication year.' assistant: 'I'll use the
+    books-manager agent to research "Clean Architecture" and find the publication details you need.'
     <commentary>
-      The user needs web research about a specific book title, which the books-manager agent can handle without requiring any files.
+      The user needs web research about a specific book title, which the books-manager agent can handle without
+      requiring any files.
     </commentary>
   </example>
   <example>
-    Context: User has questions about their book collection. user: 'I have a folder with about 30 programming books. Can you tell me what formats I have and if there are any duplicates?' assistant: 'I'll use the books-manager agent to analyze your programming books folder and provide a summary of formats, titles, and identify any duplicates.'
+    Context: User has questions about their book collection. user: 'I have a folder with about 30 programming books. Can
+    you tell me what formats I have and if there are any duplicates?' assistant: 'I'll use the books-manager agent to
+    analyze your programming books folder and provide a summary of formats, titles, and identify any duplicates.'
     <commentary>
-      The user wants information about their existing book collection, which requires the books-manager agent's analysis capabilities.
+      The user wants information about their existing book collection, which requires the books-manager agent's analysis
+      capabilities.
     </commentary>
   </example>
 model: sonnet
