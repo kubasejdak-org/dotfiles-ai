@@ -7,12 +7,12 @@ description: >
   Examples:
   <example>
     Context: User needs to implement a thread-safe queue class following RAII principles. user: 'I need to create a
-    thread-safe queue that follows RAII and uses modern C++ features' assistant: 'I'll use the cpp-expert-engineer agent to design and implement this thread-safe queue with proper RAII principles and modern C++ best practices'
+    thread-safe queue that follows RAII and uses modern C++ features' assistant: 'I'll use the cpp-developer agent to design and implement this thread-safe queue with proper RAII principles and modern C++ best practices'
   </example>
   <example>
     Context: User has written C++ code that needs quality review and formatting. user: 'Here's my C++ implementation
     of a binary search tree. Can you review it for best practices and format it properly?' assistant: 'Let me use the
-    cpp-expert-engineer agent to review your binary search tree implementation, check it against best practices and
+    cpp-developer agent to review your binary search tree implementation, check it against best practices and
     apply proper formatting with clang-format'
   </example>
 model: sonnet
