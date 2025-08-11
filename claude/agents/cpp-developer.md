@@ -1,21 +1,6 @@
 ---
 name: cpp-developer
-description: >
-  Use this agent when you need expert C++ development assistance, including implementing features following specific
-  design requirements, applying best coding practices, using clang-tidy and clang-format for code quality, researching
-  standard library functions on cppreference.com or integrating third-party libraries using context7 MCP.
-  Examples:
-  <example>
-    Context: User needs to implement a thread-safe queue class following RAII principles. user: 'I need to create a
-    thread-safe queue that follows RAII and uses modern C++ features' assistant: 'I'll use the cpp-developer agent to
-    design and implement this thread-safe queue with proper RAII principles and modern C++ best practices'
-  </example>
-  <example>
-    Context: User has written C++ code that needs quality review and formatting. user: 'Here's my C++ implementation
-    of a binary search tree. Can you review it for best practices and format it properly?' assistant: 'Let me use the
-    cpp-developer agent to review your binary search tree implementation, check it against best practices and
-    apply proper formatting with clang-format'
-  </example>
+description: Use this agent when you need to write or edit C++ code
 model: sonnet
 color: blue
 ---

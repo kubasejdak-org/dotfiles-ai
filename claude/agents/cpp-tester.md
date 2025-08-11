@@ -1,26 +1,6 @@
 ---
 name: cpp-tester
-description: >
-  Use this agent when you need comprehensive unit tests for C++ code using Catch2 framework.
-  Examples:
-    <example>
-      Context: User has written a new C++ class and wants thorough unit tests created. user: 'I've implemented a
-      StringParser class with methods parse(), validate() and getTokens(). Can you create comprehensive unit tests for
-      it?' assistant: 'I'll use the cpp-tester agent to analyze your StringParser class and create comprehensive Catch2
-      unit tests with full coverage.'
-      <commentary>
-        The user needs unit tests for a specific C++ class, which is exactly what the cpp-tester specializes in.
-      </commentary>
-    </example>
-    <example>
-      Context: User is developing a C++ library and wants to ensure all edge cases are tested. user: 'Here are the
-      requirements for my Matrix class - it should support addition, multiplication and determinant calculation. I need
-      tests that cover all edge cases.' assistant: 'I'll use the cpp-tester agent to create comprehensive Catch2 tests
-      based on your Matrix class requirements, ensuring all edge cases and error conditions are covered.'
-      <commentary>
-        The user needs requirement-based test creation with edge case coverage, perfect for the cpp-tester.
-      </commentary>
-    </example>
+description: Use this agent when you need comprehensive unit tests for C++ code using Catch2 framework
 model: sonnet
 color: purple
 ---
