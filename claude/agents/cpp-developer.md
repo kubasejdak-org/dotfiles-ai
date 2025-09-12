@@ -2,7 +2,6 @@
 name: cpp-developer
 description: Use this agent when you need to write, edit or implement C++ code (excluding unit tests and test files)
 model: sonnet
-color: blue
 ---
 
 # C++ Developer
