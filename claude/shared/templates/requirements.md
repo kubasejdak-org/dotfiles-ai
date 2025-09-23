@@ -1,60 +1,65 @@
-# Requirements: <Project_Name>
+# Requirements: {{PROJECT_NAME}}
 
-Here goes a brief description of the project. Something that one would say to a friend or a shareholder to describe what
-is the goal of the project.
+{{PROJECT_DESCRIPTION}}
+
+---
+
+**Template Usage**: Replace all `{{PLACEHOLDER}}` values with project-specific content. Remove this section and reference the requirements-instructions.md file for detailed guidance
+
+---
 
 ## Functional Requirements
 
-### <Domain_Name_1>
+### {{DOMAIN_NAME_1}}
 
-#### FR-001 First Functional Requirement Name
+#### FR-001 {{REQUIREMENT_NAME}}
 
-- [ ] Description of what the system should do
-- [ ] Additional details about the expected behavior
-- [ ] Any constraints or specific requirements
+- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
+- [ ] {{MEASURABLE_CRITERIA}}
+- [ ] {{CONSTRAINTS_OR_LIMITATIONS}}
 
-#### FR-002 Second Functional Requirement Name
+#### FR-002 {{REQUIREMENT_NAME}}
 
-- [ ] Description of another functional requirement
-- [ ] Details about the expected behavior
+- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
+- [ ] {{MEASURABLE_CRITERIA}}
 
-### <Domain_Name_2>
+### {{DOMAIN_NAME_2}}
 
-#### FR-003 Third Functional Requirement Name
+#### FR-003 {{REQUIREMENT_NAME}}
 
-- [ ] Description of functional requirement in another domain
-- [ ] Details about user interaction or system behavior
-- [ ] Any specific constraints
+- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
+- [ ] {{USER_INTERACTION_DETAILS}}
+- [ ] {{CONSTRAINTS_OR_LIMITATIONS}}
 
-#### FR-004 Fourth Functional Requirement Name
+#### FR-004 {{REQUIREMENT_NAME}}
 
-- [ ] Description of another requirement in this domain
+- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
 
 ## Non-Functional Requirements
 
-### <Non_Functional_Doman_1>
+### {{NON_FUNCTIONAL_DOMAIN_1}}
 
-#### NFR-001 First Non-Functional Requirement Name
+#### NFR-001 {{REQUIREMENT_NAME}}
 
-- [ ] Description of quality attribute or constraint
-- [ ] Details about the non-functional behavior expected
+- [ ] {{QUALITY_ATTRIBUTE_DESCRIPTION}}
+- [ ] {{MEASURABLE_PERFORMANCE_CRITERIA}}
 
-#### NFR-002 Second Non-Functional Requirement Name
+#### NFR-002 {{REQUIREMENT_NAME}}
 
-- [ ] Description of another quality requirement
-- [ ] Performance, security, or other non-functional details
+- [ ] {{QUALITY_ATTRIBUTE_DESCRIPTION}}
+- [ ] {{MEASURABLE_PERFORMANCE_CRITERIA}}
 
 ## Technical Requirements
 
-### <Technical_Domain_1>
+### {{TECHNICAL_DOMAIN_1}}
 
-#### TR-001 First Technical Requirement Name
+#### TR-001 {{REQUIREMENT_NAME}}
 
-- [ ] Description of technical implementation requirement
-- [ ] Technology stack, frameworks, or architectural decisions
-- [ ] Any specific technical constraints
+- [ ] {{TECHNICAL_IMPLEMENTATION_DESCRIPTION}}
+- [ ] {{TECHNOLOGY_STACK_SPECIFICATIONS}}
+- [ ] {{TECHNICAL_CONSTRAINTS}}
 
-#### TR-002 Second Technical Requirement Name
+#### TR-002 {{REQUIREMENT_NAME}}
 
-- [ ] Description of another technical requirement
-- [ ] Details about implementation approach or tools
+- [ ] {{TECHNICAL_IMPLEMENTATION_DESCRIPTION}}
+- [ ] {{IMPLEMENTATION_APPROACH_DETAILS}}
