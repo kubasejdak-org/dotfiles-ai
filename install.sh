@@ -37,11 +37,13 @@ install_nodejs() {
 install_nodejs
 
 ${SCRIPT_DIR}/claude/install.sh
+${SCRIPT_DIR}/codex/install.sh
 ${SCRIPT_DIR}/gemini/install.sh
 
 echo "🎉 Installation complete! AI development tools are ready to use."
 echo ""
 echo "Available commands:"
 echo "  - claude: Claude Code"
+echo "  - codex: Codex CLI"
 echo "  - gemini: Gemini CLI"
 echo ""
