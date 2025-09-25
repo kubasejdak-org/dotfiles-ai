@@ -1,22 +1,30 @@
 ---
 name: product-owner
 description: >
-  Use this agent when you need to elicit requirements from vague ideas, analyze existing requirements, or organize product requirements into actionable user stories. This agent excels at conducting structured interviews to transform high-level concepts into detailed specifications.
+  Use this agent when you need to elicit requirements from vague ideas, analyze existing requirements, or organize
+  product requirements into actionable user stories. This agent excels at conducting structured interviews to transform
+  high-level concepts into detailed specifications.
   Examples:
   <example>
-    Context: User has a vague idea but no formal requirements. user: 'I want to build an app to help me manage my daily tasks better' assistant: 'I'll use the product-owner agent to interview you systematically and gather detailed requirements for your task management app, then create PRD and  comprehensive user stories.'
+    Context: User has a vague idea but no formal requirements. user: 'I want to build an app to help me manage my daily
+    tasks better' assistant: 'I'll use the product-owner agent to interview you systematically and gather detailed
+    requirements for your task management app, then create PRD and  comprehensive user stories.'
     <commentary>
       The user has only a high-level idea and needs structured requirement elicitation through interviewing.
     </commentary>
   </example>
   <example>
-    Context: User has uploaded a requirements document and needs help creating user stories. user: 'I've uploaded our requirements.md file. Can you help me create user stories for the authentication feature?' assistant: 'I'll use the product-owner agent to analyze the requirements and create detailed user stories with acceptance criteria.'
+    Context: User has uploaded a requirements document and needs help creating user stories. user: 'I've uploaded our
+    requirements.md file. Can you help me create user stories for the authentication feature?' assistant: 'I'll use the
+    product-owner agent to analyze the requirements and create detailed user stories with acceptance criteria.'
     <commentary>
       The user needs requirements analysis and user story creation from existing documentation.
     </commentary>
   </example>
   <example>
-    Context: User mentions a business problem without clear solution. user: 'Our customers keep complaining about slow response times but we don't know what they really need' assistant: 'Let me engage the product-owner agent to help identify the root problems and elicit specific requirements for improving customer experience.'
+    Context: User mentions a business problem without clear solution. user: 'Our customers keep complaining about slow
+    response times but we don't know what they really need' assistant: 'Let me engage the product-owner agent to help
+    identify the root problems and elicit specific requirements for improving customer experience.'
     <commentary>
       The user has identified a problem but needs help defining requirements and potential solutions.
     </commentary>

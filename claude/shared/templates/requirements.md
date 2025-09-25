@@ -1,65 +1,35 @@
-# Requirements: {{PROJECT_NAME}}
+# Product Requirements Document – *Project Name*
 
-{{PROJECT_DESCRIPTION}}
+## Project Overview
 
----
-
-**Template Usage**: Replace all `{{PLACEHOLDER}}` values with project-specific content. Remove this section and reference the requirements-instructions.md file for detailed guidance
-
----
+*Briefly describe the project’s purpose, scope, and key objectives. This section provides context for the requirements
+below.*
 
 ## Functional Requirements
 
-### {{DOMAIN_NAME_1}}
+- [ ] **FR-1:** *[Functional requirement description]*
+  - *Additional info (details, rationale, or sub-requirements) can be added as indented bullet points.*
+- [ ] **FR-2:** *[Another functional requirement]*
+  - *Additional details or examples, if any.*
 
-#### FR-001 {{REQUIREMENT_NAME}}
-
-- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
-- [ ] {{MEASURABLE_CRITERIA}}
-- [ ] {{CONSTRAINTS_OR_LIMITATIONS}}
-
-#### FR-002 {{REQUIREMENT_NAME}}
-
-- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
-- [ ] {{MEASURABLE_CRITERIA}}
-
-### {{DOMAIN_NAME_2}}
-
-#### FR-003 {{REQUIREMENT_NAME}}
-
-- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
-- [ ] {{USER_INTERACTION_DETAILS}}
-- [ ] {{CONSTRAINTS_OR_LIMITATIONS}}
-
-#### FR-004 {{REQUIREMENT_NAME}}
-
-- [ ] {{SPECIFIC_BEHAVIOR_DESCRIPTION}}
+<!-- Continue listing additional functional requirements as needed, incrementing the FR IDs. -->
 
 ## Non-Functional Requirements
 
-### {{NON_FUNCTIONAL_DOMAIN_1}}
+- [ ] **NFR-1:** *[Non-functional requirement description]*
+  - *Additional info (e.g. specific metric or benchmark to meet).*
+- [ ] **NFR-2:** *[Another non-functional requirement]*
+  - *Additional details or context, if needed.*
 
-#### NFR-001 {{REQUIREMENT_NAME}}
+<!-- Continue listing additional NFRs as needed. Non-functional requirements include performance, security, usability,
+etc. -->
 
-- [ ] {{QUALITY_ATTRIBUTE_DESCRIPTION}}
-- [ ] {{MEASURABLE_PERFORMANCE_CRITERIA}}
+## Technical Constraints and Requirements
 
-#### NFR-002 {{REQUIREMENT_NAME}}
+- [ ] **TR-1:** *[Technical constraint or requirement]*
+  - *Additional context or reasoning (e.g. mandated technology or standard).*
+- [ ] **TR-2:** *[Another technical constraint]*
+  - *Additional details or implications, if any.*
 
-- [ ] {{QUALITY_ATTRIBUTE_DESCRIPTION}}
-- [ ] {{MEASURABLE_PERFORMANCE_CRITERIA}}
-
-## Technical Requirements
-
-### {{TECHNICAL_DOMAIN_1}}
-
-#### TR-001 {{REQUIREMENT_NAME}}
-
-- [ ] {{TECHNICAL_IMPLEMENTATION_DESCRIPTION}}
-- [ ] {{TECHNOLOGY_STACK_SPECIFICATIONS}}
-- [ ] {{TECHNICAL_CONSTRAINTS}}
-
-#### TR-002 {{REQUIREMENT_NAME}}
-
-- [ ] {{TECHNICAL_IMPLEMENTATION_DESCRIPTION}}
-- [ ] {{IMPLEMENTATION_APPROACH_DETAILS}}
+<!-- Continue listing technical requirements/constraints as needed. These might include platform choices, frameworks,
+compliance obligations, integration needs, etc. -->
