@@ -1,6 +1,6 @@
 # Transform Text into Requirements Document
 
-Use requirements-specialist subagent to transform rough ideas, concepts, project descriptions, or existing text into
+Use @requirements-specialist subagent to transform rough ideas, concepts, project descriptions, or existing text into
 structured software requirements following the central requirements template.
 
 Requirements:
