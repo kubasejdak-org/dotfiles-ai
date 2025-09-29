@@ -15,3 +15,8 @@ documents into structured software requirements following @shared/templates/requ
 2. Transform into structured requirements using predefined file template
    - *For file paths:* read and adapt the existing document to template format
    - *For text descriptions:* generate complete requirements document from scratch
+
+## Guidelines
+
+- If something is not clear, then ask the user clarifying questions, until you have a good understanding of the project
+  or feature
