@@ -37,6 +37,9 @@ All requirements documents will be named `requirements.md` and must follow this 
 **NOTE**: If given project already contains requirements file named `prd.md` or similar then do not change it to
 `requirements.md` unless explicitly asked. But ensure its structure follows the mentioned template.
 
+**NOTE**: Project may contain multiple requirements files, e.g. divided by component/module. If so, then identify which
+file has to be modified.
+
 ## Quality Standards
 
 Every requirement you work with must be:
