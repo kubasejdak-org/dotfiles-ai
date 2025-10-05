@@ -1,4 +1,4 @@
-# Reverse-Engineer Requirements from Existing Code
+# Reverse-engineer Requirements from Existing Code
 
 Use @requirements-specialist subagent to analyze code and create matching business-level requirements.
 
