@@ -38,7 +38,7 @@ All requirements documents will be named `requirements.md` and must follow this 
 `requirements.md` unless explicitly asked. But ensure its structure follows the mentioned template.
 
 **NOTE**: Project may contain multiple requirements files, e.g. divided by component/module. If so, then identify which
-file has to be modified.
+file has to be modified in given case.
 
 ## Quality Standards
 
