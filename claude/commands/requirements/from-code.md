@@ -1,25 +1,23 @@
-# Reverse-Engineer Requirements From Existing Code
+# Reverse-Engineer Requirements from Existing Code
 
-Analyze existing code to extract and document business-level requirements. Use @requirements-specialist subagent to
-create requirements that describe WHAT the system does, not HOW it's implemented.
+Use @requirements-specialist subagent to analyze code and create matching business-level requirements.
 
 ## Context
 
-- Target code (file path, directory, or module name): $ARGUMENTS
+- Target code (file path, directory, or module name with optional description): $ARGUMENTS
 - Requirements template: @shared/templates/requirements.md
-- Output: `requirements.md` for the analyzed component
+- Output: `requirements.md`, unless explicitly asked to use another file
 
 ## Workflow
 
-1. Analyze specified code/module from provided code reference
-2. Use @requirements-specialist to:
+1. Parse initial description from user input
+2. Analze referenced codebase, in particular:
    - Identify business functionality (not implementation details)
    - Extract user-facing features and capabilities
    - Identify constraints and non-functional aspects
    - Document technical dependencies
-3. Generate requirements document at business level
-4. Present findings and ask user to validate interpretation
-5. Refine based on feedback
+3. Generate requirements document following template
+4. Present for user review and iterate if needed
 
 ## Guidelines
 

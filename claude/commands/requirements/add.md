@@ -6,7 +6,7 @@ Use @requirements-specialist subagent to create new requirements from the provid
 
 - User input (project/feature description): $ARGUMENTS
 - Requirements template: @shared/templates/requirements.md
-- Target file: `requirements.md` (or existing project requirements file)
+- Output: `requirements.md` (or existing project requirements file)
 
 ## Workflow
 
