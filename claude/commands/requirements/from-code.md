@@ -1,20 +1,31 @@
-# Generate Requirements from Existing Code
+# Reverse-Engineer Requirements From Existing Code
 
-Use @requirements-specialist subagent to reverse-engineer requirements from existing codebases, analyzing public APIs, interfaces, and implemented functionality to create structured software requirements.
+Analyze existing code to extract and document business-level requirements. Use @requirements-specialist subagent to
+create requirements that describe WHAT the system does, not HOW it's implemented.
 
-Requirements:
+## Context
 
-- Analyze existing codebase structure, public APIs, and interfaces
-- Extract functional behavior and business logic from implementation
-- Generate structured requirements document using @shared/templates/requirements.md format
-- Map code features to functional requirements (FR-), performance aspects to non-functional requirements (NFR-), and technology choices to technical requirements (TR-)
-- Ensure all requirements meet professional quality standards (specific, achievable, relevant, testable, unambiguous)
-- Create comprehensive Project Overview section based on codebase analysis
-- Focus on public API contracts and user-facing functionality rather than internal implementation details
+- Target code (file path, directory, or module name): $ARGUMENTS
+- Requirements template: @shared/templates/requirements.md
+- Output: `requirements.md` for the analyzed component
 
-Examples:
+## Workflow
 
-- Generate requirements for undocumented legacy modules
-- Create formal requirements for existing API endpoints
-- Document business rules embedded in code logic
-- Extract requirements from working prototypes or MVP implementations
+1. Analyze specified code/module from provided code reference
+2. Use @requirements-specialist to:
+   - Identify business functionality (not implementation details)
+   - Extract user-facing features and capabilities
+   - Identify constraints and non-functional aspects
+   - Document technical dependencies
+3. Generate requirements document at business level
+4. Present findings and ask user to validate interpretation
+5. Refine based on feedback
+
+## Guidelines
+
+- Focus on business capabilities, not code structure
+- Abstract away implementation details
+- Identify implied requirements from code behavior
+- Note assumptions made during analysis
+- Flag areas where business intent is unclear from code alone
+- Consider: What problem does this code solve for users?
