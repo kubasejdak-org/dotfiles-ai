@@ -1,7 +1,6 @@
 # Add Requirements
 
-Guide the user through creating structured software requirements from a rough concept or description. Use the
-@requirements-specialist subagent to iteratively refine requirements until they meet professional standards.
+Use @requirements-specialist subagent to create new requirements from the provided description.
 
 ## Context
 
@@ -12,7 +11,7 @@ Guide the user through creating structured software requirements from a rough co
 ## Workflow
 
 1. Parse initial description from user input
-2. Use @requirements-specialist to analyze and identify gaps/ambiguities
+2. Analyze and identify gaps/ambiguities
 3. Ask clarifying questions iteratively until you have:
    - Clear functional requirements
    - Relevant non-functional requirements
@@ -22,8 +21,6 @@ Guide the user through creating structured software requirements from a rough co
 
 ## Guidelines
 
-- Probe for edge cases and hidden requirements
 - Consider all user personas and workflows
-- Ensure each requirement is testable and specific
-- Don't assume - ask when unclear
-- Stop iterating when all requirements meet quality standards
+- Focus on business logic when creating functional requirements
+- Do not include technical solutions in requirements unless explicitly asked
