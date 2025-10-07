@@ -12,8 +12,8 @@ Use @requirements-specialist subagent to migrate an existing requirements docume
 
 1. Read the existing requirements file from provided path
 2. Extract all requirements and categorize them (FR/NFR/TR)
-3. Refactor requirements structure to match template (identify main requirement and its additional details/info -
-   bullet points section)
+3. Refactor requirements structure to match template (identify main requirement and its additional details/info - bullet
+   points section)
 4. Generate adapted document following predefined template
 
 ## Guidelines
