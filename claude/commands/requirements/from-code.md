@@ -1,6 +1,6 @@
 # Reverse-engineer Requirements from Existing Code
 
-Use @requirements-specialist subagent to analyze code and create matching business-level requirements.
+Use @requirements-specialist subagent to analyze existing code and create matching business-level requirements.
 
 ## Context
 
@@ -21,8 +21,8 @@ Use @requirements-specialist subagent to analyze code and create matching busine
 
 ## Guidelines
 
-- Focus on business capabilities, not code structure
-- Abstract away implementation details
+- Focus on code capabilities, not code structure
+- Abstract away implementation details, unless explicitly asked to keep them
 - Identify implied requirements from code behavior
 - Note assumptions made during analysis
 - Flag areas where business intent is unclear from code alone
