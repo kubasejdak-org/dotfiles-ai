@@ -33,7 +33,6 @@ description: >
     </commentary>
   </example>
 model: sonnet
-color: green
 ---
 
 # Digital Books Manager
