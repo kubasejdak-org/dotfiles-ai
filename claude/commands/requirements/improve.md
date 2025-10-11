@@ -1,20 +1,19 @@
 # Improve Requirements
 
-Analyze and improve existing requirements to ensure they meet quality standards: clear, specific, testable, and
-unambiguous. Use @requirements-specialist subagent to enhance requirement quality.
+Use @requirements-specialist subagent to improve existing requirements for compliance with predefined quality standards
+and document template format.
 
 ## Context
 
 - Target (file path, or specific requirement ID like "FR-3"): $ARGUMENTS
 - Requirements template: @shared/templates/requirements.md
-- Quality criteria: SMART requirements (Specific, Measurable, Achievable, Relevant, Testable)
 
 ## Workflow
 
-1. Identify target requirements from provided target requirement
+1. Identify requirements to check from provided user input
    - If file path: analyze all requirements in file
    - If requirement ID: focus on specific requirement(s)
-2. Use @requirements-specialist to evaluate each requirement against quality standards
+2. Evaluate each requirement against quality standards
 3. For each issue found:
    - Explain the problem (ambiguity, lack of specificity, etc.)
    - Propose improved version
@@ -25,8 +24,6 @@ unambiguous. Use @requirements-specialist subagent to enhance requirement qualit
 ## Guidelines
 
 - Maintain original intent while improving clarity
-- Make requirements more specific and testable
-- Remove ambiguity and vague language
-- Ensure consistency across related requirements
-- Don't change scope - only improve articulation
-- Highlight dependencies or conflicts between requirements
+- Always explain to the user what is wrong with given requirement and how to address it
+- Propose dividing or merging requirements if it makes sense in given case
+- Propose adding or removing requirements if something needs clarification or if it does not add any value to the subject
