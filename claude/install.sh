@@ -21,6 +21,8 @@ install_claude_code() {
 install_claude_config() {
     echo "📝 Installing Claude Code configuration..."
 
+    claude plugin marketplace add anthropics/claude-plugins-official
+
     # Remote MCP servers
     claude plugin install context7@claude-plugins-official
 
@@ -32,6 +34,7 @@ install_claude_config() {
     ln -sf "${SCRIPT_DIR}/commands" ~/.claude
     ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude
     ln -sf "${SCRIPT_DIR}/shared" ~/.claude
+    ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude
 }
 
 install_claude_code
