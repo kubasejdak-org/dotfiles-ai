@@ -1,10 +1,14 @@
 {
+  "permissions": {
+    "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
+    "deny": []
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
   "model": "sonnet",
-  "permissions": {
-    "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
-    "deny": []
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/kuba/.claude/statusline.sh"
   }
 }
