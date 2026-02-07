@@ -9,6 +9,6 @@
   "model": "sonnet",
   "statusLine": {
     "type": "command",
-    "command": "bash /home/kuba/.claude/statusline.sh"
+    "command": "bash ~/.claude/statusline.sh"
   }
 }
