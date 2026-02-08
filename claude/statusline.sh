@@ -26,10 +26,6 @@ get_color() {
 # Get color for context usage
 context_color=$(get_color "$context_used")
 
-commands=$((user_commands + project_commands))
-skills=$((user_skills + project_skills))
-agents=$((user_agents + project_agents))
-
 # Build status line
 printf "\033[0;36m%s\033[0m | \033[1;37m%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
     "$cwd_name" \
