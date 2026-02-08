@@ -3,12 +3,12 @@
     "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
     "deny": []
   },
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true
-  },
-  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline.sh"
-  }
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true
+  },
+  "model": "sonnet"
 }

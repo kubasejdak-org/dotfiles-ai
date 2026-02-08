@@ -23,11 +23,28 @@ get_color() {
     fi
 }
 
+# Function to get model color based on model name
+get_model_color() {
+    local model=$1
+    if echo "$model" | grep -iq "haiku"; then
+        echo "1;34"  # Bold Blue
+    elif echo "$model" | grep -iq "sonnet"; then
+        echo "1;32"  # Bold Green
+    elif echo "$model" | grep -iq "opus"; then
+        echo "1;38;5;208"  # Bold Orange
+    else
+        echo "1;37"  # Bold White (default)
+    fi
+}
+
 # Get color for context usage
 context_color=$(get_color "$context_used")
 
+# Get color for model name
+model_color=$(get_model_color "$model_name")
+
 # Build status line
-printf "\033[0;36m%s\033[0m | \033[1;37m%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
+printf "\033[1;37m%s\033[0m | \033[%sm%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
     "$cwd_name" \
-    "$model_name" \
+    "$model_color" "$model_name" \
     "$context_color" "$context_used"
