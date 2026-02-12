@@ -9,6 +9,12 @@ cwd_name=$(basename "$cwd")
 model_name=$(echo "$input" | jq -r '.model.display_name')
 context_used=$(echo "$input" | jq -r '.context_window.used_percentage // 0')
 
+# Get git branch if in a git repo
+branch_name=""
+if [ -d "$cwd/.git" ] || git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
+    branch_name=$(git -C "$cwd" branch --show-current 2>/dev/null)
+fi
+
 # Function to get color based on percentage
 get_color() {
     local percent=$1
@@ -44,7 +50,17 @@ context_color=$(get_color "$context_used")
 model_color=$(get_model_color "$model_name")
 
 # Build status line
-printf "\033[1;37m%s\033[0m | \033[%sm%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
-    "$cwd_name" \
-    "$model_color" "$model_name" \
-    "$context_color" "$context_used"
+if [ -n "$branch_name" ]; then
+    # Include git branch in status line
+    printf "\033[1;37m%s\033[0m | \033[1;33m%s\033[0m | \033[%sm%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
+        "$cwd_name" \
+        "$branch_name" \
+        "$model_color" "$model_name" \
+        "$context_color" "$context_used"
+else
+    # No git branch, use original format
+    printf "\033[1;37m%s\033[0m | \033[%sm%s\033[0m | Context: \033[%sm%.0f%%\033[0m" \
+        "$cwd_name" \
+        "$model_color" "$model_name" \
+        "$context_color" "$context_used"
+fi
