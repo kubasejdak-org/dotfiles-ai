@@ -27,13 +27,14 @@ install_claude_config() {
     claude plugin install context7@claude-plugins-official
 
     # Local MCP servers
-    
+
     # Install configs
     ln -sf "${SCRIPT_DIR}/agents" ~/.claude
     ln -sf "${SCRIPT_DIR}/CLAUDE.md" ~/.claude
     ln -sf "${SCRIPT_DIR}/commands" ~/.claude
     ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude
     ln -sf "${SCRIPT_DIR}/shared" ~/.claude
+    ln -sf "${SCRIPT_DIR}/skills" ~/.claude
     ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude
 }
 
