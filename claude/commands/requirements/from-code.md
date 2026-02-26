@@ -1,29 +1,17 @@
-# Reverse-engineer Requirements from Existing Code
+# Reverse-Engineer Requirements from Code
 
-Use @requirements-specialist subagent to analyze existing code and create matching business-level requirements.
+Use the `requirements` skill (Workflow E) to analyze existing code and produce a business-level requirements document
+from it.
 
-## Context
+## Arguments
 
-- Target code (file path, directory, or module name with optional description): $ARGUMENTS
-- Requirements template: @shared/templates/requirements.md
-- Output: `requirements.md`, unless explicitly asked to use another file
+`$ARGUMENTS` — Path to the file or directory to analyze, optionally with a short description of its purpose.
 
-## Workflow
+**Format:** `<path> [optional: short description]`
 
-1. Parse initial description from user input
-2. Analze referenced codebase, in particular:
-   - Identify business functionality (not implementation details)
-   - Extract user-facing features and capabilities
-   - Identify constraints and non-functional aspects
-   - Document technical dependencies
-3. Generate requirements document following template
-4. Present for user review and iterate if needed
+**Examples:**
 
-## Guidelines
-
-- Focus on code capabilities, not code structure
-- Abstract away implementation details, unless explicitly asked to keep them
-- Identify implied requirements from code behavior
-- Note assumptions made during analysis
-- Flag areas where business intent is unclear from code alone
-- Consider: What problem does this code solve for users?
+- `src/auth/`
+- `lib/payments.py`
+- `src/api/users.ts — handles user CRUD and role management`
+- _(leave empty to describe the code or paste it interactively)_
