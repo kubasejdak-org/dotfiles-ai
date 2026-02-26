@@ -27,11 +27,11 @@ tools.
 - **Consistency**: Follow existing codebase conventions
 - **Operator Alternatives**: Prefer operator overloads over explicit function calls when available for improved
   readability:
-  - Use `*optional_value` instead of `optional_value.value()` for optional dereferencing
-  - Use `*smart_ptr` instead of `smart_ptr.get()` for pointer dereferencing
-  - Use `container[index]` instead of `container.at(index)` when bounds are guaranteed
+    - Use `*optional_value` instead of `optional_value.value()` for optional dereferencing
+    - Use `*smart_ptr` instead of `smart_ptr.get()` for pointer dereferencing
+    - Use `container[index]` instead of `container.at(index)` when bounds are guaranteed
 
-<!-- 
+<!--
 
 ### Memory Safety
 
@@ -151,24 +151,24 @@ tools.
 // RAII wrapper example
 class FileHandle {
 public:
-    explicit FileHandle(const std::string& filename) 
+    explicit FileHandle(const std::string& filename)
         : file_(std::fopen(filename.c_str(), "r")) {
         if (!file_) {
             throw std::runtime_error("Failed to open file");
         }
     }
-    
-    ~FileHandle() { 
-        if (file_) std::fclose(file_); 
+
+    ~FileHandle() {
+        if (file_) std::fclose(file_);
     }
-    
+
     // Non-copyable, movable
     FileHandle(const FileHandle&) = delete;
     FileHandle& operator=(const FileHandle&) = delete;
     FileHandle(FileHandle&& other) noexcept : file_(other.file_) {
         other.file_ = nullptr;
     }
-    
+
 private:
     std::FILE* file_;
 };
