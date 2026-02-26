@@ -16,9 +16,9 @@ standardized template format.
 All requirements documents follow this structure (see full template in `references/template.md`):
 
 ```markdown
-# Product Requirements Document – _Project Name_
+# _Project / Component Name_ – Requirements
 
-## Project Overview
+## Overview
 
 _Brief description of purpose, scope, and objectives._
 
