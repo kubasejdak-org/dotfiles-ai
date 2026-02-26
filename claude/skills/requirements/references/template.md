@@ -1,9 +1,9 @@
-# Product Requirements Document – _Project Name_
+# _Project / Component Name_ – Requirements
 
-## Project Overview
+## Overview
 
-_Briefly describe the project's purpose, scope, and key objectives. This section provides context for the requirements
-below._
+_Briefly describe the project's or component's purpose, scope, and key objectives. This section provides context for the
+requirements below._
 
 ## Functional Requirements
 
