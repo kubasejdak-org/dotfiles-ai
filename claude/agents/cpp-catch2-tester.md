@@ -1,6 +1,7 @@
 ---
 name: cpp-catch2-tester
-description: Use this agent when you need to write or edit C++ unit tests, test files or testing code using Catch2 framework
+description:
+    Use this agent when you need to write or edit C++ unit tests, test files or testing code using Catch2 framework
 model: sonnet
 ---
 
