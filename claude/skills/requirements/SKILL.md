@@ -139,6 +139,10 @@ Use when: User wants to generate requirements that reflect what existing code ac
     - Error handling and edge cases
     - External dependencies and integration points
 2. **Abstract away implementation** — requirements describe _what_ the system does, not _how_ it's coded
+    - For each implementation detail found (variable name, function, constant, flag), ask: _"What user-observable
+      capability or constraint does this enable?"_ and write the requirement around the answer
+    - Never mention variable names, function names, or internal constants in requirements — describe only the effect
+      from the user's perspective
 3. **Identify implied requirements** from code behavior (e.g., validation logic implies NFRs around data integrity)
 4. **Note assumptions** where business intent is unclear from code alone
 5. **Draft the requirements document** following the template
@@ -156,6 +160,8 @@ Before presenting a final document, verify:
 - [ ] Functional, Non-Functional, and Technical sections are all present (or explicitly omitted with reason)
 - [ ] No technical solutions prescribed in Functional Requirements (unless user asked)
 - [ ] Sub-bullets add genuine detail, not just restatements
+- [ ] No implementation details (variables, functions, constants) appear in requirements (unless explicitly asked) —
+      only user-observable behaviors and capabilities
 
 ## Reference Files
 
