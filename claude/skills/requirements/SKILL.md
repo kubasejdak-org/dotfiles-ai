@@ -59,18 +59,18 @@ Use when: User has a vague idea, feature description, or verbal concept with no 
 1. **Parse the initial description** — extract what you can about the goal, users, and scope
 2. **Identify gaps** — list what's unclear: Who are the users? What are the boundaries? What does success look like?
 3. **Ask clarifying questions iteratively** using the 5W1H framework:
-    - **WHO**: Target users, personas, stakeholders
-    - **WHAT**: Exact functionality, data handled, system behavior
-    - **WHY**: Business value, problem being solved
-    - **WHEN**: Timeline constraints, dependencies
-    - **WHERE**: System boundaries, integration points, environments
-    - **HOW**: Technical constraints, performance needs, existing systems
+    - **WHO:** Target users, personas, stakeholders
+    - **WHAT:** Exact functionality, data handled, system behavior
+    - **WHY:** Business value, problem being solved
+    - **WHEN:** Timeline constraints, dependencies
+    - **WHERE:** System boundaries, integration points, environments
+    - **HOW:** Technical constraints, performance needs, existing systems
 4. **Never settle for vague answers** — probe with: "Can you give a specific example?", "How would you measure that?",
    "What happens if we don't include this?"
 5. **Draft the requirements document** following the template
 6. **Present for review** and iterate until confirmed
 
-**Important**: Focus on _what_ the system should do, not _how_ it does it. Avoid prescribing technical solutions unless
+**Important:** Focus on _what_ the system should do, not _how_ it does it. Avoid prescribing technical solutions unless
 explicitly requested.
 
 ---
@@ -80,11 +80,11 @@ explicitly requested.
 Use when: User has an existing `requirements.md` or `prd.md` and wants to add, change, or expand it.
 
 1. **Read the existing file** — understand current structure and requirement IDs
-2. **Determine the scope of change**: adding new requirements, modifying existing ones, or both
+2. **Determine the scope of change:** adding new requirements, modifying existing ones, or both
 3. **Assign correct IDs** — continue the existing numbering sequence (e.g., if FR-5 is last, next is FR-6)
 4. **Ask clarifying questions** about any ambiguous additions
 5. **Apply changes** and present a diff/summary of what changed
-6. **Note**: If the file uses a non-standard format (e.g., `prd.md`), preserve the filename and adapt the structure — do
+6. **Note:** If the file uses a non-standard format (e.g., `prd.md`), preserve the filename and adapt the structure — do
    not rename unless explicitly asked
 
 ---
@@ -109,21 +109,21 @@ Use when: User wants to improve clarity, specificity, or testability of existing
 
 **Quality standards** — each requirement must be:
 
-- **Specific and Clear**: Detailed enough for a developer to implement without asking questions
-- **Achievable**: Technically and resource-wise feasible
-- **Testable**: Can be validated through testing or review
-- **Unambiguous**: Clear to both technical and non-technical stakeholders
-- **Relevant**: Aligned with the project's business objectives
+- **Specific and Clear:** Detailed enough for a developer to implement without asking questions
+- **Achievable:** Technically and resource-wise feasible
+- **Testable:** Can be validated through testing or review
+- **Unambiguous:** Clear to both technical and non-technical stakeholders
+- **Relevant:** Aligned with the project's business objectives
 
 **Process:**
 
-1. **Identify target**: Either a whole file or a specific requirement ID (e.g., `FR-3`)
+1. **Identify target:** Either a whole file or a specific requirement ID (e.g., `FR-3`)
 2. **Evaluate each requirement** against the quality standards above
-3. **For each issue found**:
+3. **For each issue found:**
     - Explain the specific problem (e.g., "This is vague — 'fast' is not measurable")
     - Propose an improved version
     - Ask for user confirmation before applying
-4. **Consider structural changes**: Suggest splitting one requirement into multiple, or merging related ones, if it
+4. **Consider structural changes:** Suggest splitting one requirement into multiple, or merging related ones, if it
    improves clarity
 5. **Apply confirmed changes** and summarize improvements
 

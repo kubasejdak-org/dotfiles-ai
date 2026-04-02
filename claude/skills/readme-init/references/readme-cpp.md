@@ -60,11 +60,11 @@ flowchart TD
 
 ### Technologies
 
-- **Language**: C++23, C17
-- **Build System**: CMake (minimum version 3.28)
-- **Documentation**: MkDocs with Material theme
-- **Static Analysis**: clang-format, clang-tidy
-- **CI/CD**: GitHub Actions
+- **Language:** C++23, C17
+- **Build System:** CMake (minimum version 3.28)
+- **Documentation:** MkDocs with Material theme
+- **Static Analysis:** clang-format, clang-tidy
+- **CI/CD:** GitHub Actions
 
 ### Repository Structure
 
@@ -187,14 +187,14 @@ target_link_libraries(my-app
 
 ### Available CMake Presets
 
-- **Native Linux**:
+- **Native Linux:**
     - **Dependencies provided by target system:** `linux-native-{gcc,clang}-{debug,release}`
-- **Cross-compilation**:
+- **Cross-compilation:**
     - **Generic ARM64:** `linux-arm64-{gcc,clang}-{debug,release}`
     - **Yocto (via SDK):** `yocto-sdk-{gcc,clang}-{debug,release}`
     - **Baremetal ARMv7:** `baremetal-armv7-*-gcc-{debug,release}`
     - **FreeRTOS ARMv7:** `freertos-armv7-*-gcc-{debug,release}`
-- **Sanitizers**: `*-{asan,lsan,tsan,ubsan}` variants
+- **Sanitizers:** `*-{asan,lsan,tsan,ubsan}` variants
 
 > [!NOTE]
 >
@@ -211,14 +211,14 @@ target_link_libraries(my-app
 
 ### Important Notes
 
-1. **Component Structure**: Each component is a separate, reusable module in `lib/` with the following structure:
+1. **Component Structure:** Each component is a separate, reusable module in `lib/` with the following structure:
     - `<component>/include/platform/<component>/`: public headers
     - `<component>/`: private implementation files
     - `<component>/CMakeLists.txt`: component configuration
     - optionally: `<component>/<module>/` with the same structure if it form a separate smaller part within component
-2. **Testing**: Always run tests when making changes. Test fixtures are well-established.
-3. **Dependencies**: Be careful with dependency management. This project has specific version requirements.
-4. **Code Style**: Follow the established patterns. The project has strict formatting and static analysis rules.
-5. **Error Handling**: Always use `std::error_code` for error reporting, never exceptions.
-6. **Documentation**: Update documentation when adding new components or changing APIs.
-7. **Namespace**: All code should be in the `platform::` namespace hierarchy.
+2. **Testing:** Always run tests when making changes. Test fixtures are well-established.
+3. **Dependencies:** Be careful with dependency management. This project has specific version requirements.
+4. **Code Style:** Follow the established patterns. The project has strict formatting and static analysis rules.
+5. **Error Handling:** Always use `std::error_code` for error reporting, never exceptions.
+6. **Documentation:** Update documentation when adding new components or changing APIs.
+7. **Namespace:** All code should be in the `platform::` namespace hierarchy.
