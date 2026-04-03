@@ -224,7 +224,7 @@ These workflows work with any book collection or directory:
 
 ### File Creation Restrictions
 
-**ONLY create these files:**
+**ONLY create these files**:
 
 - `before.txt` - SHA256 checksums (MANDATORY)
 - `after.txt` - SHA256 checksums (MANDATORY)

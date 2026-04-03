@@ -19,10 +19,10 @@ explicit statement.
 If the user explicitly specifies a language or a reference file to use, skip detection and use that directly.
 
 Otherwise, load the appropriate language reference file. These files are the gold standard for structure and style —
-read the relevant one **before generating anything:**
+read the relevant one **before generating anything**:
 
-- **C/C++:** `references/readme-cpp.md`
-- **Other/unknown:** use `references/readme-cpp.md` as a structural baseline and adapt section names and tooling
+- **C/C++**: `references/readme-cpp.md`
+- **Other/unknown**: use `references/readme-cpp.md` as a structural baseline and adapt section names and tooling
   accordingly
 
 If the language is something not listed, read the closest reference file and adapt: the overall section order (Overview

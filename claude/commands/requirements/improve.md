@@ -7,9 +7,9 @@ requirements.
 
 `$ARGUMENTS` — Path to the requirements file, optionally followed by specific requirement IDs to target.
 
-**Format:** `<file-path> [requirement-id ...]`
+**Format**: `<file-path> [requirement-id ...]`
 
-**Examples:**
+**Examples**:
 
 - `requirements.md` — review all requirements in the file
 - `requirements.md FR-3` — focus on a single requirement

@@ -7,7 +7,7 @@ template format.
 
 `$ARGUMENTS` — Path to the requirements file to adapt.
 
-**Examples:**
+**Examples**:
 
 - `docs/old-requirements.txt`
 - `prd.md`

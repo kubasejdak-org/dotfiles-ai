@@ -6,9 +6,9 @@ Use the `requirements` skill (Workflow B) to add or modify requirements in an ex
 
 `$ARGUMENTS` — Path to the requirements file, followed by a description of the change.
 
-**Format:** `<file-path> | <what to add or change>`
+**Format**: `<file-path> | <what to add or change>`
 
-**Examples:**
+**Examples**:
 
 - `requirements.md | add rate limiting and API key authentication`
 - `docs/prd.md | FR-4 should also cover CSV export, not just JSON`
