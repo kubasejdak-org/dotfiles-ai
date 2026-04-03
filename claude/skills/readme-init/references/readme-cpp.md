@@ -74,6 +74,7 @@ flowchart TD
 platform/
 ├── cmake/                          # CMake build system
 │   ├── compilation-flags.cmake     # Internal compilation flags
+│   ├── components.cmake            # Helper component loader (FetchContent helper)
 │   ├── modules/                    # CMake Findxxx.cmake modules for dependencies
 │   └── presets/                    # Internal presets helpers
 ├── lib/                            # Core components
