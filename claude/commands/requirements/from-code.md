@@ -7,9 +7,9 @@ from it.
 
 `$ARGUMENTS` — Path to the file or directory to analyze, optionally with a short description of its purpose.
 
-**Format:** `<path> [optional: short description]`
+**Format**: `<path> [optional: short description]`
 
-**Examples:**
+**Examples**:
 
 - `src/auth/`
 - `lib/payments.py`
