@@ -23,8 +23,6 @@
 
 ## Class Layout (order of sections)
 
-- Classes should have the following structure:
-
 ```cpp
 class Example {
     // Private type aliases
@@ -52,8 +50,7 @@ private:
 
 - The order of method / function declarations in the header must match the order of their definitions in the
   implementation file
-- For template classes, method definitions must appear below the class declaration (not inline inside the class body) —
-  this keeps the class declaration clean and scannable:
+- For template classes, method definitions must appear below the class declaration, not inline inside the class body:
 
 ```cpp
 template <typename T>
@@ -75,8 +72,7 @@ int Foo<T>::baz(T value) { ... }
 - No namespace indentation
 - Closing brace annotated: `} // namespace foo`
 - Never use `using namespace` at file scope — in headers or implementation files
-- Free functions and variables with internal linkage in `.cpp` files must be placed in an anonymous namespace; do not
-  use the `static` keyword for this purpose:
+- Internal-linkage functions and variables in `.cpp` files go in an anonymous namespace, not `static`:
 
 ```cpp
 namespace {
