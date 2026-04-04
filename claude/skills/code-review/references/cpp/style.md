@@ -14,7 +14,8 @@ projects without those configs, or for aspects the configs do not cover.
 - **Separate blocks with blank line:**
     - between top-level definitions
     - after `if`, `for`, `while`, `switch` expressions
-    - between separate logical
+    - between separate logical blocks of code
+    - between namespace start/end braces and its content
     - **exception:** adjacent explicit scopes creatd by curly braces
 
 ## Braces
@@ -44,3 +45,4 @@ Within each group: sorted case-sensitively.
 - No trailing whitespace
 - LF line endings
 - Newline at end of file
+- `typename` instead of `class` in templates definitions
