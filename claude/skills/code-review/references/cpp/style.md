@@ -31,8 +31,8 @@ projects without those configs, or for aspects the configs do not cover.
 Order (clang-format priority, lowest = first):
 
 1. Project headers (`"..."`)
-2. System/platform headers with extension (`<stdio.h>`, `<sys/types.h>`)
-3. Third-party libraries (`<boost/...>`, `<catch2/...>`, `<fmt/...>`, `<spdlog/...>`, etc.)
+2. Third-party libraries (`<boost/...>`, `<catch2/...>`, `<fmt/...>`, `<spdlog/...>`, etc.)
+3. System/platform headers with extension (`<stdio.h>`, `<sys/types.h>`)
 4. Standard library headers (`<vector>`, `<string>`, `<thread>`, etc.)
 
 Within each group: sorted case-sensitively.
