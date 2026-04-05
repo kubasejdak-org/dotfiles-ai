@@ -41,18 +41,27 @@ Determine language from file extensions:
 
 ## Step 3: Load Reference Files
 
-Always load: all files from `references/common/`
+Always load all files from `references/common/`.
 
-For C/C++, load based on aspect. If no aspect is given, load all five files.
+For language-specific rules, load based on aspect using the tables below. If no aspect is given, load all files for that
+language.
 
-| Aspect       | Reference file                |
-| ------------ | ----------------------------- |
-| `style`      | `references/cpp/style.md`     |
-| `naming`     | `references/cpp/naming.md`    |
-| `idioms`     | `references/cpp/idioms.md`    |
-| `layout`     | `references/cpp/layout.md`    |
-| `design`     | `references/cpp/design.md`    |
-| `objectives` | _(already loaded via common)_ |
+**Aspect guide** — which file a rule belongs to:
+
+| Aspect       | Guiding question                                      | File                  |
+| ------------ | ----------------------------------------------------- | --------------------- |
+| `style`      | How does the code look? (formatting, spacing, braces) | `{lang}/style.md`     |
+| `naming`     | What are identifiers called?                          | `{lang}/naming.md`    |
+| `layout`     | Where does code live? (files, classes, namespaces)    | `{lang}/layout.md`    |
+| `idioms`     | Which construct or syntax is used on this line?       | `{lang}/idioms.md`    |
+| `design`     | How is this class or module structured?               | `{lang}/design.md`    |
+| `objectives` | Does this change do what it claims?                   | _(loaded via common)_ |
+
+`{lang}` maps to:
+
+| Language | Directory |
+| -------- | --------- |
+| C / C++  | `cpp`     |
 
 ## Step 4: Perform the Review
 
@@ -108,7 +117,7 @@ with them.
 
 - `src/Foo.cpp:5` [high] — [finding]
 
-## Constructs
+## Idioms
 
 - `src/Bar.hpp:12` [critical] — [finding]
 ```
