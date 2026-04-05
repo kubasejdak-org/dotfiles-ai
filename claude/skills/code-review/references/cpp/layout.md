@@ -20,6 +20,7 @@
     - Templates
     - `inline` functions where inlining is intentional
 - `#pragma once` at the top
+- Prefer forward declarations over full includes in headers when the full definition is not needed
 
 ## Class Layout (order of sections)
 

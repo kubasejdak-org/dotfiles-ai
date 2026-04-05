@@ -14,7 +14,7 @@ or specific files/directories when provided.
 
 Parse `$ARGUMENTS` to extract (all optional):
 
-- **aspect** — one of: `style`, `naming`, `idioms`, `layout`, `objectives`. If omitted, review all aspects
+- **aspect** — one of: `style`, `naming`, `idioms`, `layout`, `design`, `objectives`. If omitted, review all aspects
 - **`--group`** — one of: `severity` (default), `file`, `aspect`
 - **paths** — one or more file or directory paths to review. If omitted, use `git diff` to find changed files
 
@@ -24,7 +24,7 @@ Examples:
 - `style` → style-only review of git diff
 - `naming src/Foo.cpp` → naming review of that file
 - `src/network/ --group=file` → full review of that directory, grouped by file
-- `constructs src/Bar.hpp src/Bar.cpp --group=aspect` → constructs review, grouped by aspect
+- `idioms src/Bar.hpp src/Bar.cpp --group=aspect` → idioms review, grouped by aspect
 
 ## Step 1: Determine Files to Review
 
@@ -41,17 +41,27 @@ Determine language from file extensions:
 
 ## Step 3: Load Reference Files
 
-Always load: all files from `references/common/`
+Always load all files from `references/common/`.
 
-For C/C++, load based on aspect. If no aspect is given, load all four files.
+For language-specific rules, load based on aspect using the tables below. If no aspect is given, load all files for that
+language.
 
-| Aspect       | Reference file                |
-| ------------ | ----------------------------- |
-| `style`      | `references/cpp/style.md`     |
-| `naming`     | `references/cpp/naming.md`    |
-| `idioms`     | `references/cpp/idioms.md`    |
-| `layout`     | `references/cpp/layout.md`    |
-| `objectives` | _(already loaded via common)_ |
+**Aspect guide** — which file a rule belongs to:
+
+| Aspect       | Guiding question                                      | File                  |
+| ------------ | ----------------------------------------------------- | --------------------- |
+| `style`      | How does the code look? (formatting, spacing, braces) | `{lang}/style.md`     |
+| `naming`     | What are identifiers called?                          | `{lang}/naming.md`    |
+| `layout`     | Where does code live? (files, classes, namespaces)    | `{lang}/layout.md`    |
+| `idioms`     | Which construct or syntax is used on this line?       | `{lang}/idioms.md`    |
+| `design`     | How is this class or module structured?               | `{lang}/design.md`    |
+| `objectives` | Does this change do what it claims?                   | _(loaded via common)_ |
+
+`{lang}` maps to:
+
+| Language | Directory |
+| -------- | --------- |
+| C / C++  | `cpp`     |
 
 ## Step 4: Perform the Review
 
@@ -107,7 +117,7 @@ with them.
 
 - `src/Foo.cpp:5` [high] — [finding]
 
-## Constructs
+## Idioms
 
 - `src/Bar.hpp:12` [critical] — [finding]
 ```
@@ -121,5 +131,6 @@ End with a one-line summary: `N critical, N high, N low findings.` or `No findin
 - `references/common/objectives.md` — how to assess if a change meets its goal
 - `references/cpp/naming.md` — naming conventions (from clang-tidy config)
 - `references/cpp/style.md` — formatting and style (from clang-format config)
-- `references/cpp/idioms.md` — preferred C++ idioms and constructs
+- `references/cpp/idioms.md` — preferred C++ idioms, constructs, and modern feature usage
 - `references/cpp/layout.md` — directory, file and class structure rules
+- `references/cpp/design.md` — high-level design: RAII, exception safety, API design, error handling, concurrency
