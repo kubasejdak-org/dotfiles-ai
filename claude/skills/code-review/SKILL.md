@@ -15,8 +15,7 @@ or specific files/directories when provided.
 Parse `$ARGUMENTS` to extract (all optional):
 
 - **aspect** — one of:
-    - Groups: `style` (formatting + naming + layout), `craft` (idioms + design),
-      `intent` (objectives + tests)
+    - Groups: `style` (formatting + naming + layout), `craft` (idioms + design), `intent` (objectives + tests)
     - Individual aspects: `formatting`, `naming`, `layout`, `idioms`, `design`, `objectives`, `tests`
     - If omitted, all aspects are reviewed
 - **`--group`** — one of: `severity` (default), `file`, `aspect`
@@ -48,38 +47,28 @@ Determine language from file extensions:
 
 ## Step 3: Load Reference Files
 
-If the argument is a **group**, expand it to its constituent aspects and load the corresponding files:
+If the argument is a **group**, expand it to its constituent aspects:
 
-| Group    | Common files            | Language files                                             |
-| -------- | ----------------------- | ---------------------------------------------------------- |
-| (none)   | objectives.md, tests.md | formatting.md, naming.md, layout.md, idioms.md, design.md |
-| `style`  | —                       | formatting.md, naming.md, layout.md                       |
-| `craft`  | —                       | idioms.md, design.md                                      |
-| `intent` | objectives.md, tests.md | —                                                         |
+| Group    | Aspects                    |
+| -------- | -------------------------- |
+| (none)   | _all aspects_              |
+| `style`  | formatting, naming, layout |
+| `craft`  | idioms, design             |
+| `intent` | objectives, tests          |
 
-If the argument is an **individual aspect**, load exactly one reference file:
+Then load files for each aspect using the table below.
 
-| Aspect       | Common file   | Language file |
-| ------------ | ------------- | ------------- |
-| `formatting` | —             | formatting.md |
-| `naming`     | —             | naming.md     |
-| `layout`     | —             | layout.md     |
-| `idioms`     | —             | idioms.md     |
-| `design`     | —             | design.md     |
-| `objectives` | objectives.md | —             |
-| `tests`      | tests.md      | —             |
+**Aspect guide** — which aspect a rule belongs to and which file it loads:
 
-**Aspect guide** — which aspect a rule belongs to:
-
-| Aspect       | Guiding question                                      | File                   |
-| ------------ | ----------------------------------------------------- | ---------------------- |
-| `formatting` | How does the code look? (formatting, spacing, braces) | `{lang}/formatting.md` |
-| `naming`     | What are identifiers called?                          | `{lang}/naming.md`     |
-| `layout`     | Where does code live? (files, classes, namespaces)    | `{lang}/layout.md`     |
-| `idioms`     | Which construct or syntax is used on this line?       | `{lang}/idioms.md`     |
-| `design`     | How is this class or module structured?               | `{lang}/design.md`     |
-| `objectives` | Does this change do what it claims?                   | _(loaded via common)_  |
-| `tests`      | Is the change adequately tested?                      | _(loaded via common)_  |
+| Aspect       | Guiding question                                      | Common file     | Language file          |
+| ------------ | ----------------------------------------------------- | --------------- | ---------------------- |
+| `formatting` | How does the code look? (formatting, spacing, braces) | —               | `{lang}/formatting.md` |
+| `naming`     | What are identifiers called?                          | —               | `{lang}/naming.md`     |
+| `layout`     | Where does code live? (files, classes, namespaces)    | —               | `{lang}/layout.md`     |
+| `idioms`     | Which construct or syntax is used on this line?       | —               | `{lang}/idioms.md`     |
+| `design`     | How is this class or module structured?               | —               | `{lang}/design.md`     |
+| `objectives` | Does this change do what it claims?                   | `objectives.md` | —                      |
+| `tests`      | Is the change adequately tested?                      | `tests.md`      | —                      |
 
 `{lang}` maps to:
 

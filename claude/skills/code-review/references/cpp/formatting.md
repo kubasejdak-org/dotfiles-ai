@@ -45,4 +45,3 @@ Within each group: sorted case-sensitively.
 - No trailing whitespace
 - LF line endings
 - Newline at end of file
-- `typename` instead of `class` in templates definitions
