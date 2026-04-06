@@ -14,17 +14,24 @@ or specific files/directories when provided.
 
 Parse `$ARGUMENTS` to extract (all optional):
 
-- **aspect** — one of: `style`, `naming`, `idioms`, `layout`, `design`, `objectives`. If omitted, review all aspects
+- **aspect** — one of:
+    - Groups: `style` (formatting + naming + layout), `craft` (idioms + design),
+      `intent` (objectives + tests)
+    - Individual aspects: `formatting`, `naming`, `layout`, `idioms`, `design`, `objectives`, `tests`
+    - If omitted, all aspects are reviewed
 - **`--group`** — one of: `severity` (default), `file`, `aspect`
 - **paths** — one or more file or directory paths to review. If omitted, use `git diff` to find changed files
 
 Examples:
 
 - _(empty)_ → full review of git diff, grouped by severity
-- `style` → style-only review of git diff
+- `style` → formatting + naming + layout review of git diff
+- `craft` → idioms + design review of git diff
+- `intent` → objectives + tests review of git diff
+- `formatting` → formatting-only review of git diff
 - `naming src/Foo.cpp` → naming review of that file
 - `src/network/ --group=file` → full review of that directory, grouped by file
-- `idioms src/Bar.hpp src/Bar.cpp --group=aspect` → idioms review, grouped by aspect
+- `idioms src/Bar.hpp --group=aspect` → idioms review, grouped by aspect
 
 ## Step 1: Determine Files to Review
 
@@ -41,21 +48,38 @@ Determine language from file extensions:
 
 ## Step 3: Load Reference Files
 
-Always load all files from `references/common/`.
+If the argument is a **group**, expand it to its constituent aspects and load the corresponding files:
 
-For language-specific rules, load based on aspect using the tables below. If no aspect is given, load all files for that
-language.
+| Group    | Common files            | Language files                                             |
+| -------- | ----------------------- | ---------------------------------------------------------- |
+| (none)   | objectives.md, tests.md | formatting.md, naming.md, layout.md, idioms.md, design.md |
+| `style`  | —                       | formatting.md, naming.md, layout.md                       |
+| `craft`  | —                       | idioms.md, design.md                                      |
+| `intent` | objectives.md, tests.md | —                                                         |
 
-**Aspect guide** — which file a rule belongs to:
+If the argument is an **individual aspect**, load exactly one reference file:
 
-| Aspect       | Guiding question                                      | File                  |
-| ------------ | ----------------------------------------------------- | --------------------- |
-| `style`      | How does the code look? (formatting, spacing, braces) | `{lang}/style.md`     |
-| `naming`     | What are identifiers called?                          | `{lang}/naming.md`    |
-| `layout`     | Where does code live? (files, classes, namespaces)    | `{lang}/layout.md`    |
-| `idioms`     | Which construct or syntax is used on this line?       | `{lang}/idioms.md`    |
-| `design`     | How is this class or module structured?               | `{lang}/design.md`    |
-| `objectives` | Does this change do what it claims?                   | _(loaded via common)_ |
+| Aspect       | Common file   | Language file |
+| ------------ | ------------- | ------------- |
+| `formatting` | —             | formatting.md |
+| `naming`     | —             | naming.md     |
+| `layout`     | —             | layout.md     |
+| `idioms`     | —             | idioms.md     |
+| `design`     | —             | design.md     |
+| `objectives` | objectives.md | —             |
+| `tests`      | tests.md      | —             |
+
+**Aspect guide** — which aspect a rule belongs to:
+
+| Aspect       | Guiding question                                      | File                   |
+| ------------ | ----------------------------------------------------- | ---------------------- |
+| `formatting` | How does the code look? (formatting, spacing, braces) | `{lang}/formatting.md` |
+| `naming`     | What are identifiers called?                          | `{lang}/naming.md`     |
+| `layout`     | Where does code live? (files, classes, namespaces)    | `{lang}/layout.md`     |
+| `idioms`     | Which construct or syntax is used on this line?       | `{lang}/idioms.md`     |
+| `design`     | How is this class or module structured?               | `{lang}/design.md`     |
+| `objectives` | Does this change do what it claims?                   | _(loaded via common)_  |
+| `tests`      | Is the change adequately tested?                      | _(loaded via common)_  |
 
 `{lang}` maps to:
 
@@ -128,9 +152,10 @@ End with a one-line summary: `N critical, N high, N low findings.` or `No findin
 
 ## Reference Files
 
-- `references/common/objectives.md` — how to assess if a change meets its goal
+- `references/common/objectives.md` — scope, description match, API completeness
+- `references/common/tests.md` — test coverage expectations
+- `references/cpp/formatting.md` — formatting and style (from clang-format config)
 - `references/cpp/naming.md` — naming conventions (from clang-tidy config)
-- `references/cpp/style.md` — formatting and style (from clang-format config)
 - `references/cpp/idioms.md` — preferred C++ idioms, constructs, and modern feature usage
 - `references/cpp/layout.md` — directory, file and class structure rules
 - `references/cpp/design.md` — high-level design: RAII, exception safety, API design, error handling, concurrency

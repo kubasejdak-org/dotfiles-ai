@@ -17,10 +17,3 @@
 - New public APIs must be fully usable — no half-implemented methods that return stub values or are left as `TODO`
 - If a feature is intentionally partial, it must be explicitly scoped in the description and the incomplete parts must
   not be exposed publicly
-
-## Tests
-
-- Any logic change must be accompanied by tests or an explicit justification for why tests are not applicable
-- Acceptable justifications: platform/hardware dependency, pure refactor with no behavior change (must be provably so),
-  UI-only change
-- Flag new public APIs with zero test coverage
