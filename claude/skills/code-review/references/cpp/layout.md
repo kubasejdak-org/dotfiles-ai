@@ -12,7 +12,7 @@
   class; file name still follows the main class
 - Small standalone structs / enums / aliases with no clear leading class go in a thematic header: `types.hpp`,
   `config.hpp`, `traits.hpp`, `errors.hpp`, etc.
-- Separate declaration (`.hpp`) from definition (`.cpp`); templates and `inline` functions are the exception
+- Separate declaration (`.hpp` / `.h`) from definition (`.cpp`); templates and `inline` functions are the exception
 
 ## Header Content
 

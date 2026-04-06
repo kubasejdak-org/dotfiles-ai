@@ -28,7 +28,9 @@
 
 ```cpp
 namespace mylib::detail {
-    struct InternalHelper { ... };
+
+struct InternalHelper { ... };
+
 }
 ```
 
@@ -36,7 +38,7 @@ namespace mylib::detail {
 
 ## Modern C++
 
-- **Target C++17/20/23**: Use modern features where the project standard allows
+- **Target C++17/20/23**: Use modern features where the project standard allows (check all compilers used by project)
 - Prefer `auto` for type deduction when the type is verbose or obvious from context
 - Use `constexpr` / `consteval` to move computation to compile time where possible
 - Prefer range-based `for` loops over index loops unless index is needed
@@ -70,3 +72,4 @@ Prefer operator syntax over named accessor calls when bounds/validity are guaran
 - Prefer C++20 `concept` constraints over `std::enable_if` / SFINAE
 - Use `requires` clauses to express interface expectations clearly
 - Leverage `std::type_traits` for conditional logic in pre-C++20 code
+- Prefer `typename` over `class` in template parameter lists (`template<typename T>`, not `template<class T>`)

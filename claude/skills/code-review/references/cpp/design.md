@@ -2,8 +2,8 @@
 
 ## Resource Management (RAII)
 
-- Manage all resources (memory, file handles, sockets, locks) through RAII — tie acquisition to construction, release
-  to destruction
+- Manage all resources (memory, file handles, sockets, locks) through RAII — tie acquisition to construction, release to
+  destruction
 - Implement or `= delete` copy operations for resource-owning types; provide move operations where transfer makes sense
 
 ## Error Handling
