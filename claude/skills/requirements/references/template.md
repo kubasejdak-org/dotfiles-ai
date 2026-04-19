@@ -7,29 +7,43 @@ requirements below._
 
 ## Functional Requirements
 
-- [ ] **FR-1**: _[Functional requirement description]_
+<!-- Use H3 group headings (### N. Name) to group requirements by component or feature area.
+     Requirement IDs are N.M within each group; numbering restarts at 1 per H2 section.
+     For simple single-component documents, use flat FR-N format instead. -->
+
+### 1. _[Component or Feature Group]_
+
+- [ ] **1.1**: _[Functional requirement description]_
     - _Additional info (details, rationale, or sub-requirements) can be added as indented bullet points._
-- [ ] **FR-2**: _[Another functional requirement]_
+- [ ] **1.2**: _[Another functional requirement]_
     - _Additional details or examples, if any._
 
-<!-- Continue listing additional functional requirements as needed, incrementing the FR IDs. -->
+### 2. _[Another Component or Feature Group]_
+
+- [ ] **2.1**: _[Functional requirement description]_
+    - _Additional details._
+
+<!-- Continue adding groups (### N. Name) as needed; add requirements within each group as N.M. -->
 
 ## Non-Functional Requirements
 
-- [ ] **NFR-1**: _[Non-functional requirement description]_
+### 1. _[Category, e.g. Performance]_
+
+- [ ] **1.1**: _[Non-functional requirement description]_
     - _Additional info (e.g. specific metric or benchmark to meet)._
-- [ ] **NFR-2**: _[Another non-functional requirement]_
+- [ ] **1.2**: _[Another non-functional requirement]_
     - _Additional details or context, if needed._
 
-<!-- Continue listing additional NFRs as needed. Non-functional requirements include performance, security, usability,
-etc. -->
+<!-- Non-functional requirements include performance, security, usability, reliability, etc. -->
 
 ## Technical Constraints and Requirements
 
-- [ ] **TR-1**: _[Technical constraint or requirement]_
+### 1. _[Category, e.g. Platform]_
+
+- [ ] **1.1**: _[Technical constraint or requirement]_
     - _Additional context or reasoning (e.g. mandated technology or standard)._
-- [ ] **TR-2**: _[Another technical constraint]_
+- [ ] **1.2**: _[Another technical constraint]_
     - _Additional details or implications, if any._
 
-<!-- Continue listing technical requirements/constraints as needed. These might include platform choices, frameworks,
-compliance obligations, integration needs, etc. -->
+<!-- Technical requirements/constraints might include platform choices, frameworks, compliance obligations,
+     integration needs, etc. -->
