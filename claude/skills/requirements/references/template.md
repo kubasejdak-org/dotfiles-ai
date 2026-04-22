@@ -7,10 +7,6 @@ requirements below._
 
 ## Functional Requirements
 
-<!-- Use H3 group headings (### N. Name) to group requirements by component or feature area.
-     Requirement IDs are N.M within each group; numbering restarts at 1 per H2 section.
-     For simple single-component documents, use flat FR-N format instead. -->
-
 ### 1. _[Component or Feature Group]_
 
 - [ ] **1.1**: _[Functional requirement description]_
@@ -24,8 +20,6 @@ requirements below._
 - [ ] **2.1**: _[Functional requirement description]_
     - _Additional details._
 
-<!-- Continue adding groups (### N. Name) as needed; add requirements within each group as N.M. -->
-
 ## Non-Functional Requirements
 
 ### 1. _[Category, e.g. Performance]_
@@ -36,8 +30,6 @@ requirements below._
 - [ ] **1.2**: _[Another non-functional requirement]_
     - _Additional details or context, if needed._
 
-<!-- Non-functional requirements include performance, security, usability, reliability, etc. -->
-
 ## Technical Constraints and Requirements
 
 ### 1. _[Category, e.g. Platform]_
@@ -47,6 +39,3 @@ requirements below._
 
 - [ ] **1.2**: _[Another technical constraint]_
     - _Additional details or implications, if any._
-
-<!-- Technical requirements/constraints might include platform choices, frameworks, compliance obligations,
-     integration needs, etc. -->
