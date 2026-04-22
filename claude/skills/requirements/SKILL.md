@@ -55,6 +55,7 @@ _Brief description of purpose, scope, and objectives._
 
 - [ ] **1.1**: [Requirement description]
     - Additional details or sub-requirements as bullet points
+
 - [ ] **1.2**: [Another requirement in this group]
 
 ### 2. _Another Component_
