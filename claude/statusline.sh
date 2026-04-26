@@ -88,11 +88,11 @@ if [ -n "$five_hour_used" ]; then
     fh_color=$(get_color "$five_hour_used")
     fh_int=$(printf "%.0f" "$five_hour_used")
     if [ "$fh_int" -eq 0 ]; then
-        fh_part=$(printf " | 5h: \033[%sm%d%%\033[0m \033[2m(full)\033[0m" "$fh_color" "$fh_int")
+        fh_part=$(printf " | 5h: \033[%sm%d%%\033[0m (full)" "$fh_color" "$fh_int")
     else
         fh_time=$(format_time_remaining "$five_hour_reset")
         if [ -n "$fh_time" ]; then
-            fh_part=$(printf " | 5h: \033[%sm%d%%\033[0m \033[2m(%s)\033[0m" "$fh_color" "$fh_int" "$fh_time")
+            fh_part=$(printf " | 5h: \033[%sm%d%%\033[0m (%s)" "$fh_color" "$fh_int" "$fh_time")
         else
             fh_part=$(printf " | 5h: \033[%sm%d%%\033[0m" "$fh_color" "$fh_int")
         fi
@@ -104,11 +104,11 @@ if [ -n "$seven_day_used" ]; then
     sd_color=$(get_color "$seven_day_used")
     sd_int=$(printf "%.0f" "$seven_day_used")
     if [ "$sd_int" -eq 0 ]; then
-        sd_part=$(printf " | 7d: \033[%sm%d%%\033[0m \033[2m(full)\033[0m" "$sd_color" "$sd_int")
+        sd_part=$(printf " | 7d: \033[%sm%d%%\033[0m (full)" "$sd_color" "$sd_int")
     else
         sd_time=$(format_time_remaining "$seven_day_reset")
         if [ -n "$sd_time" ]; then
-            sd_part=$(printf " | 7d: \033[%sm%d%%\033[0m \033[2m(%s)\033[0m" "$sd_color" "$sd_int" "$sd_time")
+            sd_part=$(printf " | 7d: \033[%sm%d%%\033[0m (%s)" "$sd_color" "$sd_int" "$sd_time")
         else
             sd_part=$(printf " | 7d: \033[%sm%d%%\033[0m" "$sd_color" "$sd_int")
         fi
