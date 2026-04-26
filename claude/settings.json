@@ -15,6 +15,7 @@
     "command": "bash ~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true
+    "context7@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
   }
 }

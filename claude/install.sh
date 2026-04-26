@@ -23,6 +23,7 @@ install_claude_config() {
 
     claude plugin marketplace add anthropics/claude-plugins-official
     claude plugin install clangd-lsp@claude-plugins-official
+    claude plugin install pyright-lsp@claude-plugins-official
 
     # Remote MCP servers
     claude plugin install context7@claude-plugins-official
