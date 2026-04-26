@@ -1,6 +1,13 @@
 {
   "permissions": {
-    "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
+    "allow": [
+      "Bash",
+      "Edit",
+      "MultiEdit",
+      "WebFetch",
+      "WebSearch",
+      "Write"
+    ],
     "deny": []
   },
   "statusLine": {
@@ -9,6 +16,5 @@
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true
-  },
-  "model": "sonnet"
+  }
 }
