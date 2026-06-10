@@ -73,6 +73,27 @@ int Foo<T>::baz(T value) { ... }
 - No namespace indentation
 - Closing brace annotated: `} // namespace foo`
 - Never use `using namespace` at file scope — in headers or implementation files
+- Do not repeat the enclosing namespace when qualifying symbols inside it — use the unqualified (or minimally
+  qualified) name instead:
+
+```cpp
+// Bad — inside namespace utils::foo, repeating utils::foo is redundant
+namespace utils::foo {
+
+void func(utils::foo::Bar bar) { ... }
+utils::foo::Result func() { ... }
+
+} // namespace utils::foo
+
+// Good
+namespace utils::foo {
+
+void func(Bar bar) { ... }
+Result func() { ... }
+
+} // namespace utils::foo
+```
+
 - Internal-linkage functions and variables in `.cpp` files go in an anonymous namespace, not `static`:
 
 ```cpp

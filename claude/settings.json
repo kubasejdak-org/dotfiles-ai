@@ -1,6 +1,13 @@
 {
   "permissions": {
-    "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
+    "allow": [
+      "Bash",
+      "Edit",
+      "MultiEdit",
+      "WebFetch",
+      "WebSearch",
+      "Write"
+    ],
     "deny": []
   },
   "statusLine": {
@@ -8,7 +15,8 @@
     "command": "bash ~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true
-  },
-  "model": "sonnet"
+    "clangd-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
+  }
 }

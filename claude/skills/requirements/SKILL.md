@@ -15,6 +15,8 @@ standardized template format.
 
 All requirements documents follow this structure (see full template in `references/template.md`):
 
+**Flat format** (simple, single-component documents):
+
 ```markdown
 # _Project / Component Name_ – Requirements
 
@@ -38,13 +40,64 @@ _Brief description of purpose, scope, and objectives._
     - Context or reasoning
 ```
 
+**Grouped format** (recommended for multi-component systems):
+
+```markdown
+# _Project / Component Name_ – Requirements
+
+## Overview
+
+_Brief description of purpose, scope, and objectives._
+
+## Functional Requirements
+
+### 1. _Component or Feature Group_
+
+- [ ] **1.1**: [Requirement description]
+    - Additional details or sub-requirements as bullet points
+
+- [ ] **1.2**: [Another requirement in this group]
+
+### 2. _Another Component_
+
+- [ ] **2.1**: [Requirement description]
+
+## Non-Functional Requirements
+
+### 1. _Category (e.g. Performance)_
+
+- [ ] **1.1**: [Non-functional requirement]
+    - Specific metrics or benchmarks
+
+## Technical Constraints and Requirements
+
+### 1. _Category (e.g. Platform)_
+
+- [ ] **1.1**: [Technical constraint or requirement]
+    - Context or reasoning
+```
+
 **Key rules**:
 
-- Requirement IDs use format `FR-N`, `NFR-N`, `TR-N` (incrementing integers)
+- **Flat format**: IDs use `FR-N`, `NFR-N`, `TR-N` (incrementing integers)
+- **Grouped format**: H3 headings (`### N. Name`) group requirements by component or category within each H2 section;
+  numbering restarts at 1 per H2 section; requirement IDs are `N.M` (e.g., `1.1`, `2.3`)
+- Use flat for simple single-component docs; use grouped when requirements span multiple distinct components
 - Each requirement is a checkbox `- [ ]`
 - Sub-details are indented bullet points under the requirement
 - File is named `requirements.md` (or `prd.md` if that already exists in the project)
 - Multiple requirements files per project are fine (e.g., per component) — identify the right one
+
+**Hard rule — no implementation details**:
+
+Requirements describe _what_ the system must do from the user's perspective, never _how_ the code implements it. Class
+names, function names, method names, variable names, type names, constants, and file names are implementation details —
+their presence in a requirement is a **red flag** signalling a violation. This rule applies to all workflows, not only
+reverse-engineering.
+
+- Test: "Could a non-developer stakeholder understand this requirement?" If not, rewrite it.
+- Bad: `"The ConfigParser::load() method must accept a file path parameter."`
+- Good: `"The system must load its configuration from a file path supplied at startup."`
 
 ## Workflows
 
@@ -71,7 +124,11 @@ Use when: User has a vague idea, feature description, or verbal concept with no 
 6. **Present for review** and iterate until confirmed
 
 **Important**: Focus on _what_ the system should do, not _how_ it does it. Avoid prescribing technical solutions unless
-explicitly requested.
+explicitly requested. If a class name, function name, or variable name appears in a requirement you are drafting, stop
+and rewrite it to describe the observable behavior instead.
+
+When drafting, choose the appropriate format: use flat (`FR-N`) for simple single-component systems; use grouped (H3
+sections with `N.M` IDs) when requirements span multiple distinct components. If uncertain, ask the user.
 
 ---
 
@@ -81,10 +138,15 @@ Use when: User has an existing `requirements.md` or `prd.md` and wants to add, c
 
 1. **Read the existing file** — understand current structure and requirement IDs
 2. **Determine the scope of change**: adding new requirements, modifying existing ones, or both
-3. **Assign correct IDs** — continue the existing numbering sequence (e.g., if FR-5 is last, next is FR-6)
-4. **Ask clarifying questions** about any ambiguous additions
-5. **Apply changes** and present a diff/summary of what changed
-6. **Note**: If the file uses a non-standard format (e.g., `prd.md`), preserve the filename and adapt the structure — do
+3. **Assign correct IDs**:
+    - Flat docs: continue the existing sequence (e.g., FR-5 → FR-6)
+    - Grouped docs: identify the right group and use the next sub-ID (e.g., group 3 has 3.1–3.3 → next is 3.4); to add a
+      new group, use the next group number within that H2 section
+4. **Scan for implementation details** — before applying any change, check that no class names, function names, variable
+   names, or other code artifacts appear. Flag and rewrite any found to behavior-level language.
+5. **Ask clarifying questions** about any ambiguous additions
+6. **Apply changes** and present a diff/summary of what changed
+7. **Note**: If the file uses a non-standard format (e.g., `prd.md`), preserve the filename and adapt the structure — do
    not rename unless explicitly asked
 
 ---
@@ -141,8 +203,10 @@ Use when: User wants to generate requirements that reflect what existing code ac
 2. **Abstract away implementation** — requirements describe _what_ the system does, not _how_ it's coded
     - For each implementation detail found (variable name, function, constant, flag), ask: _"What user-observable
       capability or constraint does this enable?"_ and write the requirement around the answer
-    - Never mention variable names, function names, or internal constants in requirements — describe only the effect
-      from the user's perspective
+    - **Never mention** class names, function names, method names, variable names, type names, file names, or constants
+      in requirements. If you catch yourself about to write one, stop and ask: _"What user-observable capability or
+      constraint does this enable?"_ Write that instead. This is the most common failure mode when reverse-engineering —
+      treat every code artifact as a trigger to abstract up to behavior.
 3. **Identify implied requirements** from code behavior (e.g., validation logic implies NFRs around data integrity)
 4. **Note assumptions** where business intent is unclear from code alone
 5. **Draft the requirements document** following the template
@@ -160,8 +224,11 @@ Before presenting a final document, verify:
 - [ ] Functional, Non-Functional, and Technical sections are all present (or explicitly omitted with reason)
 - [ ] No technical solutions prescribed in Functional Requirements (unless user asked)
 - [ ] Sub-bullets add genuine detail, not just restatements
-- [ ] No implementation details (variables, functions, constants) appear in requirements (unless explicitly asked) —
-      only user-observable behaviors and capabilities
+- [ ] **[CRITICAL]** No implementation details appear in requirements — class names, function names, method names,
+      variable names, type names, constants, and file names are all red flags; only user-observable behaviors and
+      capabilities belong here
+- [ ] If using grouped format: H3 headings are numbered sequentially within each H2 section (restart at 1 per section),
+      requirement IDs use `N.M` format, and each group number is unique within its section
 
 ## Reference Files
 
