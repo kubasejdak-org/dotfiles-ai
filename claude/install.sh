@@ -33,13 +33,33 @@ install_claude_config() {
     # Local MCP servers
 
     # Install configs
-    ln -sf "${SCRIPT_DIR}/agents" ~/.claude
-    ln -sf "${SCRIPT_DIR}/CLAUDE.md" ~/.claude
-    ln -sf "${SCRIPT_DIR}/commands" ~/.claude
-    ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude
-    ln -sf "${SCRIPT_DIR}/shared" ~/.claude
-    ln -sf "${SCRIPT_DIR}/skills" ~/.claude
-    ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude
+    ln -sf "${SCRIPT_DIR}/CLAUDE.md" ~/.claude/CLAUDE.md
+    ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude/settings.json
+    ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude/statusline.sh
+
+    # Install agents
+    mkdir -p ~/.claude/agents
+    for entry in "${SCRIPT_DIR}/agents/"*; do
+        ln -sf "$entry" ~/.claude/agents/
+    done
+
+    # Install commands
+    mkdir -p ~/.claude/commands
+    for entry in "${SCRIPT_DIR}/commands/"*; do
+        ln -sf "$entry" ~/.claude/commands/
+    done
+
+    # Install skills
+    mkdir -p ~/.claude/skills
+    for entry in "${SCRIPT_DIR}/skills/"*; do
+        ln -sf "$entry" ~/.claude/skills/
+    done
+
+    # Install shared
+    mkdir -p ~/.claude/shared
+    for entry in "${SCRIPT_DIR}/shared/"*; do
+        ln -sf "$entry" ~/.claude/shared/
+    done
 }
 
 install_claude_cli
