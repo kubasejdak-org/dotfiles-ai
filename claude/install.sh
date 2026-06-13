@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Safe to re-run.
 
 set -e
 
@@ -8,18 +10,18 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-install_claude_code() {
-    echo "📦 Installing Claude Code..."
+install_claude_cli() {
+    echo "Installing Claude Code..."
     if command_exists claude; then
-        echo "✅ Claude Code is already installed ($(claude --version))"
+        echo "  already installed ($(claude --version))"
     else
         curl -fsSL https://claude.ai/install.sh | bash
-        echo "✅ Claude Code installed successfully"
+        echo "  installed"
     fi
 }
 
 install_claude_config() {
-    echo "📝 Installing Claude Code configuration..."
+    echo "Installing Claude Code configuration..."
 
     claude plugin marketplace add anthropics/claude-plugins-official
     claude plugin install clangd-lsp@claude-plugins-official
@@ -40,5 +42,5 @@ install_claude_config() {
     ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude
 }
 
-install_claude_code
+install_claude_cli
 install_claude_config
