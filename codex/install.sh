@@ -11,7 +11,7 @@ command_exists() {
 }
 
 install_codex_cli() {
-    echo "Installing Codex CLI..."
+    echo "Installing Codex..."
     if command_exists codex; then
         echo "  already installed ($(codex --version))"
     else
@@ -22,7 +22,7 @@ install_codex_cli() {
 
 install_codex_config() {
     echo "Installing Codex configuration..."
-    echo "⚠️ Codex CLI config installation is not yet implemented"
+    echo "⚠️ Codex config installation is not yet implemented"
 }
 
 install_codex_cli
