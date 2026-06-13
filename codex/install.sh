@@ -1,23 +1,27 @@
 #!/bin/bash
+#
+# Safe to re-run.
 
 set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
 install_codex_cli() {
-    echo "📦 Installing Codex CLI..."
+    echo "Installing Codex CLI..."
     if command_exists codex; then
-        echo "✅ Codex CLI is already installed"
+        echo "  already installed ($(codex --version))"
     else
-        npm install -g @openai/codex
-        echo "✅ Codex CLI installed successfully"
+        curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 bash
+        echo "  installed"
     fi
 }
 
 install_codex_config() {
-    echo "📝 Installing Codex CLI configuration..."
+    echo "Installing Codex configuration..."
     echo "⚠️ Codex CLI config installation is not yet implemented"
 }
 
