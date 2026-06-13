@@ -1,24 +1,28 @@
 #!/bin/bash
+#
+# Safe to re-run.
 
 set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
 install_copilot_cli() {
-    echo "📦 Installing GitHub Copilot CLI..."
+    echo "Installing GitHub Copilot..."
     if command_exists copilot; then
-        echo "✅ GitHub Copilot CLI is already installed"
+        echo "  already installed ($(copilot --version))"
     else
-        npm install -g @github/copilot
-        echo "✅ GitHub Copilot CLI installed successfully"
+        curl -fsSL https://gh.io/copilot-install | bash
+        echo "  installed"
     fi
 }
 
 install_copilot_config() {
-    echo "📝 Installing GitHub Copilot CLI configuration..."
-    echo "⚠️ GitHub Copilot CLI config installation is not yet implemented"
+    echo "Installing GitHub Copilot configuration..."
+    echo "⚠️ GitHub Copilot config installation is not yet implemented"
 }
 
 install_copilot_cli
