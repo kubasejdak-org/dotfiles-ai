@@ -21,8 +21,9 @@ install_codex_cli() {
 }
 
 install_codex_config() {
-    echo "Installing Codex configuration..."
-    echo "⚠️ Codex config installation is not yet implemented"
+    echo "InstallingCodex configuration..."
+    ln -sf "${SCRIPT_DIR}/config.toml" ~/.copilot/
+    echo "  installed"
 }
 
 install_codex_cli
