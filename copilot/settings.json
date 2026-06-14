@@ -1,0 +1,18 @@
+{
+  "theme": "auto",
+  "model": "claude-sonnet-4.6",
+  "footer": {
+    "showModelEffort": true,
+    "showDirectory": true,
+    "showBranch": true,
+    "showContextWindow": true,
+    "showQuota": true,
+    "showAiUsed": true,
+    "showAgent": true,
+    "showCodeChanges": false,
+    "showUsername": false,
+    "showSandbox": true,
+    "showYolo": true,
+    "showCustom": false
+  }
+}

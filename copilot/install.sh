@@ -22,7 +22,8 @@ install_copilot_cli() {
 
 install_copilot_config() {
     echo "Installing GitHub Copilot configuration..."
-    echo "⚠️ GitHub Copilot config installation is not yet implemented"
+    ln -sf "${SCRIPT_DIR}/settings.json" ~/.copilot/settings.json
+    echo "  installed"
 }
 
 install_copilot_cli
