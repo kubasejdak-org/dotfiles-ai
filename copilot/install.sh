@@ -22,7 +22,7 @@ install_copilot_cli() {
 
 install_copilot_config() {
     echo "Installing GitHub Copilot configuration..."
-    ln -sf "${SCRIPT_DIR}/settings.json" ~/.copilot/settings.json
+    ln -sf "${SCRIPT_DIR}/settings.json" ~/.copilot/
     echo "  installed"
 }
 

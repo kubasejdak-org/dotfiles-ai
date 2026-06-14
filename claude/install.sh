@@ -33,9 +33,9 @@ install_claude_config() {
     # Local MCP servers
 
     # Install configs
-    ln -sf "${SCRIPT_DIR}/CLAUDE.md" ~/.claude/CLAUDE.md
-    ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude/settings.json
-    ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude/statusline.sh
+    ln -sf "${SCRIPT_DIR}/CLAUDE.md" ~/.claude/
+    ln -sf "${SCRIPT_DIR}/settings.json" ~/.claude/
+    ln -sf "${SCRIPT_DIR}/statusline.sh" ~/.claude/
 
     # Install agents
     mkdir -p ~/.claude/agents
