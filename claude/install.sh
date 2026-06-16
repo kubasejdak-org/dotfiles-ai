@@ -22,7 +22,9 @@ install_claude_cli() {
 
 install_claude_config() {
     echo "Installing Claude Code configuration..."
+    mkdir -p ~/.claude
 
+    # Install plugins
     claude plugin marketplace add anthropics/claude-plugins-official
     claude plugin install clangd-lsp@claude-plugins-official
     claude plugin install pyright-lsp@claude-plugins-official

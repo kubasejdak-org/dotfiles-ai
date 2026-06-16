@@ -22,7 +22,9 @@ install_codex_cli() {
 
 install_codex_config() {
     echo "InstallingCodex configuration..."
-    ln -sf "${SCRIPT_DIR}/config.toml" ~/.copilot/
+    mkdir -p ~/.codex
+
+    ln -sf "${SCRIPT_DIR}/config.toml" ~/.codex/
     echo "  installed"
 }
 
