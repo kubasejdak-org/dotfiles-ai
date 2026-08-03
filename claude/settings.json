@@ -19,6 +19,7 @@
     "context7@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
+  "tui": "fullscreen",
   "theme": "dark",
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": true
 }
