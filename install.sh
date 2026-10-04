@@ -9,11 +9,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Setting up AI development tools..."
 echo
 
-for tool_script in "${SCRIPT_DIR}"/*/install.sh; do
-    [ -f "$tool_script" ] || continue
-    bash "$tool_script"
-    echo
-done
+bash "${SCRIPT_DIR}/claude/install.sh"
+echo
+
+bash "${SCRIPT_DIR}/codex/install.sh"
+echo
+
+bash "${SCRIPT_DIR}/copilot/install.sh"
+echo
 
 echo "Installation complete! AI development tools are ready to use"
 echo

@@ -1,19 +1,28 @@
 {
-  "theme": "auto",
-  "model": "claude-sonnet-5",
   "contextTier": "long_context",
   "footer": {
-    "showModelEffort": true,
-    "showDirectory": true,
-    "showBranch": true,
-    "showContextWindow": true,
-    "showQuota": true,
-    "showAiUsed": true,
     "showAgent": true,
+    "showAiUsed": true,
+    "showBranch": true,
     "showCodeChanges": false,
-    "showUsername": false,
+    "showContextWindow": true,
+    "showCustom": false,
+    "showDirectory": true,
+    "showModelEffort": true,
+    "showQuota": true,
     "showSandbox": true,
-    "showYolo": true,
-    "showCustom": false
-  }
+    "showUsername": false,
+    "showYolo": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "bash": "bash '/home/kuba/.copilot/hooks/herdr-agent-state.sh'",
+        "timeoutSec": 10,
+        "type": "command"
+      }
+    ]
+  },
+  "model": "claude-sonnet-5",
+  "theme": "auto"
 }
