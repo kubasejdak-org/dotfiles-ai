@@ -1,0 +1,129 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "beautifulsoup4>=4.12",
+#     "httpx2",
+# ]
+# ///
+
+import sys
+from urllib.parse import urljoin
+
+import httpx2
+from bs4 import BeautifulSoup
+
+BASE_URL = "https://ebookpoint.pl/"
+
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36")
+}
+
+
+def get_soup(url: str) -> BeautifulSoup:
+    response = httpx2.get(
+        url,
+        headers=HEADERS,
+        timeout=15,
+        follow_redirects=True,
+    )
+    response.raise_for_status()
+    return BeautifulSoup(response.text, "html.parser")
+
+
+def get_ebook_of_the_day() -> str | None:
+    soup = get_soup(BASE_URL)
+
+    label = soup.find(string=lambda s: s and s.strip().lower() == "ebook dnia")
+    if label is None:
+        return None
+
+    container = label.parent
+    book_link = None
+
+    while container is not None:
+        book_link = container.find(
+            "a",
+            href=lambda href: href and "/ksiazki/" in href,
+        )
+
+        if book_link:
+            break
+
+        container = container.parent
+
+    if book_link is None:
+        return None
+
+    book_url = urljoin(BASE_URL, book_link["href"])
+    book_soup = get_soup(book_url)
+
+    h1 = book_soup.find("h1")
+    if h1 is None:
+        return None
+
+    author_label = book_soup.find(string=lambda s: s and s.strip() in {"Autor:", "Autorzy:"})
+    if author_label is None:
+        return None
+
+    author_container = author_label.parent
+    authors: list[str] = []
+
+    for sibling in author_container.next_siblings:
+        if getattr(sibling, "name", None) in {"div", "section", "p", "br"}:
+            break
+
+        if getattr(sibling, "name", None) == "a":
+            authors.append(sibling.get_text(" ", strip=True))
+
+        if hasattr(sibling, "find_all"):
+            authors.extend(a.get_text(" ", strip=True) for a in sibling.find_all("a"))
+
+        if authors:
+            break
+
+    if not authors:
+        authors = [a.get_text(" ", strip=True) for a in author_container.find_all("a")]
+
+    if not authors:
+        return None
+
+    # The heading has separate spans for the title and the full author list.
+    # Reading the whole heading mixes both fields, especially for multiple authors.
+    title_element = h1.find("span", recursive=False)
+    title = (title_element if title_element is not None else h1).get_text(" ", strip=True)
+
+    return f"{title} - {', '.join(authors)}"
+
+
+def main() -> int:
+    try:
+        ebook = get_ebook_of_the_day()
+
+        if ebook is None:
+            print(
+                "Error: Could not find today's ebook promotion.",
+                file=sys.stderr,
+            )
+            return 1
+
+        print(ebook)
+        return 0
+
+    except httpx2.HTTPError as exc:
+        print(
+            f"Error: Failed to fetch Ebookpoint: {exc}",
+            file=sys.stderr,
+        )
+        return 1
+
+    except Exception as exc:
+        print(
+            f"Error: Failed to retrieve today's ebook: {exc}",
+            file=sys.stderr,
+        )
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
