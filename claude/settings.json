@@ -1,14 +1,21 @@
 {
   "permissions": {
-    "allow": [
-      "Bash",
-      "Edit",
-      "MultiEdit",
-      "WebFetch",
-      "WebSearch",
-      "Write"
-    ],
+    "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
     "deny": []
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/kuba/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
   },
   "statusLine": {
     "type": "command",
@@ -21,6 +28,7 @@
   },
   "tui": "fullscreen",
   "theme": "dark",
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "model": "sonnet"
 }
