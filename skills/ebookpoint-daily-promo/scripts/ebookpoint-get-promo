@@ -1,17 +1,12 @@
-#!/usr/bin/env -S uv run --script
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "beautifulsoup4>=4.12",
-#     "httpx2",
-# ]
-# ///
+#!/usr/bin/env python3
 
+import http.client
 import sys
+import urllib.error
+import urllib.request
+from collections.abc import Callable, Iterator
+from html.parser import HTMLParser
 from urllib.parse import urljoin
-
-import httpx2
-from bs4 import BeautifulSoup
 
 BASE_URL = "https://ebookpoint.pl/"
 
@@ -19,22 +14,109 @@ HEADERS = {
     "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36")
 }
 
+VOID_ELEMENTS = {
+    "area", "base", "br", "col", "embed", "hr", "img", "input", "keygen",
+    "link", "menuitem", "meta", "param", "source", "spacer", "track", "wbr",
+}  # fmt: skip
 
-def get_soup(url: str) -> BeautifulSoup:
-    response = httpx2.get(
-        url,
-        headers=HEADERS,
-        timeout=15,
-        follow_redirects=True,
-    )
-    response.raise_for_status()
-    return BeautifulSoup(response.text, "html.parser")
+# Strings inside these tags are searchable but excluded from get_text(), like in BeautifulSoup.
+NON_TEXT_CONTAINERS = {"script", "style"}
+
+
+class Element:
+    def __init__(self, name: str, attrs: dict[str, str], parent: "Element | None") -> None:
+        self.name = name
+        self.attrs = attrs
+        self.parent = parent
+        self.children: list[Element | Text] = []
+
+
+class Text:
+    name = None
+
+    def __init__(self, value: str, parent: Element, is_text: bool) -> None:
+        self.value = value
+        self.parent = parent
+        self.is_text = is_text
+
+
+class TreeBuilder(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.root = Element("[document]", {}, None)
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        element = Element(tag, {k: v or "" for k, v in attrs}, self.stack[-1])
+        self.stack[-1].children.append(element)
+        if tag not in VOID_ELEMENTS:
+            self.stack.append(element)
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+        if tag not in VOID_ELEMENTS:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag: str) -> None:
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].name == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data: str) -> None:
+        parent = self.stack[-1]
+        parent.children.append(Text(data, parent, parent.name not in NON_TEXT_CONTAINERS))
+
+    def handle_comment(self, data: str) -> None:
+        self.stack[-1].children.append(Text(data, self.stack[-1], False))
+
+
+def descendants(element: Element) -> Iterator[Element | Text]:
+    for child in element.children:
+        yield child
+        if isinstance(child, Element):
+            yield from descendants(child)
+
+
+def find_string(element: Element, predicate: Callable[[str], bool]) -> Text | None:
+    return next((n for n in descendants(element) if isinstance(n, Text) and predicate(n.value)), None)
+
+
+def find_all(element: Element, name: str, recursive: bool = True) -> list[Element]:
+    nodes = descendants(element) if recursive else iter(element.children)
+    return [n for n in nodes if isinstance(n, Element) and n.name == name]
+
+
+def find(element: Element, name: str, recursive: bool = True) -> Element | None:
+    return next(iter(find_all(element, name, recursive)), None)
+
+
+def next_siblings(node: Element) -> list[Element | Text]:
+    siblings = node.parent.children if node.parent is not None else []
+    return siblings[next(i for i, s in enumerate(siblings) if s is node) + 1 :]
+
+
+def get_text(element: Element) -> str:
+    parts = (n.value.strip() for n in descendants(element) if isinstance(n, Text) and n.is_text)
+    return " ".join(p for p in parts if p)
+
+
+def get_document(url: str) -> Element:
+    request = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(request, timeout=15) as response:
+        charset = response.headers.get_content_charset() or "utf-8"
+        html = response.read().decode(charset, errors="replace")
+
+    builder = TreeBuilder()
+    builder.feed(html)
+    builder.close()
+    return builder.root
 
 
 def get_ebook_of_the_day() -> str | None:
-    soup = get_soup(BASE_URL)
+    document = get_document(BASE_URL)
 
-    label = soup.find(string=lambda s: s and s.strip().lower() == "ebook dnia")
+    label = find_string(document, lambda s: s.strip().lower() == "ebook dnia")
     if label is None:
         return None
 
@@ -42,10 +124,7 @@ def get_ebook_of_the_day() -> str | None:
     book_link = None
 
     while container is not None:
-        book_link = container.find(
-            "a",
-            href=lambda href: href and "/ksiazki/" in href,
-        )
+        book_link = next((a for a in find_all(container, "a") if "/ksiazki/" in a.attrs.get("href", "")), None)
 
         if book_link:
             break
@@ -55,43 +134,43 @@ def get_ebook_of_the_day() -> str | None:
     if book_link is None:
         return None
 
-    book_url = urljoin(BASE_URL, book_link["href"])
-    book_soup = get_soup(book_url)
+    book_url = urljoin(BASE_URL, book_link.attrs["href"])
+    book_document = get_document(book_url)
 
-    h1 = book_soup.find("h1")
+    h1 = find(book_document, "h1")
     if h1 is None:
         return None
 
-    author_label = book_soup.find(string=lambda s: s and s.strip() in {"Autor:", "Autorzy:"})
+    author_label = find_string(book_document, lambda s: s.strip() in {"Autor:", "Autorzy:"})
     if author_label is None:
         return None
 
     author_container = author_label.parent
     authors: list[str] = []
 
-    for sibling in author_container.next_siblings:
-        if getattr(sibling, "name", None) in {"div", "section", "p", "br"}:
+    for sibling in next_siblings(author_container):
+        if sibling.name in {"div", "section", "p", "br"}:
             break
 
-        if getattr(sibling, "name", None) == "a":
-            authors.append(sibling.get_text(" ", strip=True))
+        if sibling.name == "a":
+            authors.append(get_text(sibling))
 
-        if hasattr(sibling, "find_all"):
-            authors.extend(a.get_text(" ", strip=True) for a in sibling.find_all("a"))
+        if isinstance(sibling, Element):
+            authors.extend(get_text(a) for a in find_all(sibling, "a"))
 
         if authors:
             break
 
     if not authors:
-        authors = [a.get_text(" ", strip=True) for a in author_container.find_all("a")]
+        authors = [get_text(a) for a in find_all(author_container, "a")]
 
     if not authors:
         return None
 
     # The heading has separate spans for the title and the full author list.
     # Reading the whole heading mixes both fields, especially for multiple authors.
-    title_element = h1.find("span", recursive=False)
-    title = (title_element if title_element is not None else h1).get_text(" ", strip=True)
+    title_element = find(h1, "span", recursive=False)
+    title = get_text(title_element if title_element is not None else h1)
 
     return f"{title} - {', '.join(authors)}"
 
@@ -110,7 +189,7 @@ def main() -> int:
         print(ebook)
         return 0
 
-    except httpx2.HTTPError as exc:
+    except (urllib.error.URLError, http.client.HTTPException, TimeoutError) as exc:
         print(
             f"Error: Failed to fetch Ebookpoint: {exc}",
             file=sys.stderr,
