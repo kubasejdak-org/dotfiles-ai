@@ -1,0 +1,10 @@
+{
+  "name": "ebooks",
+  "version": "0.1.0",
+  "description": "Ebooks discovery and management",
+  "author": {
+    "name": "Kuba Sejdak"
+  },
+  "repository": "https://github.com/kubasejdak-org/dotfiles-ai",
+  "license": "MIT"
+}
