@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ebooks",
+  "version": "0.1.0",
+  "description": "Ebooks discovery and management",
+  "author": {
+    "name": "Kuba Sejdak"
+  },
+  "repository": "https://github.com/kubasejdak-org/dotfiles-ai",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Ebooks",
+        "shortDescription": "Ebooks discovery and management",
+        "developerName": "Kuba Sejdak",
+        "capabilities": []
+      }
+    }
+  }
+}
