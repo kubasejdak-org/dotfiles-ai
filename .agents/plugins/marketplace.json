@@ -1,0 +1,20 @@
+{
+  "name": "dotfiles-ai",
+  "interface": {
+    "displayName": "Kuba Sejdak Plugins"
+  },
+  "plugins": [
+    {
+      "name": "ebooks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ebooks"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
