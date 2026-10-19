@@ -14,7 +14,9 @@
         "displayName": "Ebooks",
         "shortDescription": "Ebooks discovery and management",
         "developerName": "Kuba Sejdak",
-        "capabilities": []
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
       }
     }
   }
