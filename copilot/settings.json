@@ -45,9 +45,5 @@
   "planEffortLevel": "high",
   "planContextTier": "long_context",
   "planModel": "claude-opus-5.5",
-  "theme": "auto",
-  "voice": {
-    "enabled": true,
-    "selectedModel": "nemotron-3.5-asr-streaming-0.6b-generic-cpu:3"
-  }
+  "theme": "auto"
 }
