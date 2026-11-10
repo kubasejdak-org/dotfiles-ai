@@ -1,20 +1,20 @@
 {
   "contextTier": "long_context",
   "enabledPlugins": {
-    "azure@awesome-copilot": true,
-    "azure-devops-copilot-plugin@copilot-plugins": true
+    "azure-devops-copilot-plugin@copilot-plugins": true,
+    "azure@awesome-copilot": true
   },
   "extraKnownMarketplaces": {
     "azure-devops-copilot-plugin-marketplace": {
       "source": {
-        "source": "github",
-        "repo": "microsoft/azure-devops-copilot-plugin"
+        "repo": "microsoft/azure-devops-copilot-plugin",
+        "source": "github"
       }
     },
     "copilot-plugins": {
       "source": {
-        "source": "github",
-        "repo": "github/copilot-plugins"
+        "repo": "github/copilot-plugins",
+        "source": "github"
       }
     }
   },
@@ -42,8 +42,8 @@
     ]
   },
   "model": "claude-sonnet-5",
-  "planEffortLevel": "high",
   "planContextTier": "long_context",
+  "planEffortLevel": "high",
   "planModel": "claude-opus-5.5",
   "theme": "auto"
 }
