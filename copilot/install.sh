@@ -25,6 +25,12 @@ install_copilot_config() {
     mkdir -p ~/.copilot
 
     ln -sf "${SCRIPT_DIR}/settings.json" ~/.copilot/
+
+    # Install shared skills
+    mkdir -p ~/.copilot/skills
+    for entry in "${SCRIPT_DIR}/../skills/"*; do
+        ln -sfn "$entry" ~/.copilot/skills/
+    done
     echo "  installed"
 }
 

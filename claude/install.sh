@@ -53,8 +53,8 @@ install_claude_config() {
 
     # Install skills
     mkdir -p ~/.claude/skills
-    for entry in "${SCRIPT_DIR}/skills/"*; do
-        ln -sf "$entry" ~/.claude/skills/
+    for entry in "${SCRIPT_DIR}/skills/"* "${SCRIPT_DIR}/../skills/"*; do
+        ln -sfn "$entry" ~/.claude/skills/
     done
 
     # Install shared
