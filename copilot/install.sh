@@ -5,6 +5,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SHARED_SKILLS_DIR="$(cd "${SCRIPT_DIR}/../skills" && pwd -P)"
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -28,7 +29,7 @@ install_copilot_config() {
 
     # Install shared skills
     mkdir -p ~/.copilot/skills
-    for entry in "${SCRIPT_DIR}/../skills/"*; do
+    for entry in "${SHARED_SKILLS_DIR}/"*; do
         ln -sfn "$entry" ~/.copilot/skills/
     done
     echo "  installed"
