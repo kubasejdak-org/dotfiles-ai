@@ -5,6 +5,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SHARED_SKILLS_DIR="$(cd "${SCRIPT_DIR}/../skills" && pwd -P)"
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -53,7 +54,7 @@ install_claude_config() {
 
     # Install skills
     mkdir -p ~/.claude/skills
-    for entry in "${SCRIPT_DIR}/skills/"* "${SCRIPT_DIR}/../skills/"*; do
+    for entry in "${SCRIPT_DIR}/skills/"* "${SHARED_SKILLS_DIR}/"*; do
         ln -sfn "$entry" ~/.claude/skills/
     done
 
