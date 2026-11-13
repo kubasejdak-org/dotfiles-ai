@@ -20,6 +20,10 @@ Apply clearly requested edits directly. For review-only requests, report finding
 Keep changes within the requested scope and report unrelated issues separately. Summarize changes or findings, including
 unresolved assumptions and any ID changes.
 
+Make changes only when needed to fulfill the user's goal or provide a concrete improvement within the requested scope.
+Do not rewrite satisfactory requirements merely to produce changes. If everything is in order, say so and leave it
+unchanged.
+
 Requirements must be specific, achievable, relevant, unambiguous, and testable. They describe **what** the system does
 from the user's perspective, not **how** its code implements it. Class, function, method, variable, type, constant, and
 internal file names are red flags: translate them into observable behavior. Record mandated technical constraints in the
