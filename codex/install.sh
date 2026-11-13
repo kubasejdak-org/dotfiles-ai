@@ -25,6 +25,12 @@ install_codex_config() {
     mkdir -p ~/.codex
 
     ln -sf "${SCRIPT_DIR}/config.toml" ~/.codex/
+
+    # Install shared skills
+    mkdir -p ~/.codex/skills
+    for entry in "${SCRIPT_DIR}/../skills/"*; do
+        ln -sfn "$entry" ~/.codex/skills/
+    done
     echo "  installed"
 }
 
