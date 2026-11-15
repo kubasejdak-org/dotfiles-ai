@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "markdownlint.config": {
+    "code-block-style": false,
+    "link-image-reference-definitions": false,
+    "no-inline-html": false,
+    "MD007": {
+      "indent": 4
+    },
+    "MD024": {
+      "siblings_only": true
+    }
+  }
+}
