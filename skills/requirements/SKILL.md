@@ -1,5 +1,5 @@
 ---
-name: requirements
+name: dev:requirements
 description: >
     Create, update, improve, or restructure software requirements and PRD documents, or derive requirements from
     existing code. Use when the user requests requirements documentation work, rather than implementation of a feature.
