@@ -1,7 +1,7 @@
 # Changelog
 
-_Replace the sample entries, versions, and dates with actual information. Remove this guidance and all other italic
-comments from the finished changelog. Omit empty categories._
+_Replace the sample entries and versions with actual information. Remove this guidance and all other italic comments
+from the finished changelog. Omit empty categories._
 
 ## Unreleased
 
@@ -35,10 +35,10 @@ _Capabilities or public interfaces that are no longer available._
 
 - Reports can no longer be exported to the legacy XML format.
 
-## 1.2.0 (2026.11.13)
+## 1.2.0
 
-_Keep released versions below Unreleased, newest first. Use X.Y.Z (YYYY.MM.DD), without a v prefix, and the same
-categories as above. Include only changes delivered in that release._
+_Keep released versions below Unreleased, newest first. Use X.Y.Z, without a v prefix or date, and the same categories
+as above. Include only changes delivered in that release._
 
 ### Added
 
