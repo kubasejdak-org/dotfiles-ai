@@ -4,6 +4,7 @@ personality = "pragmatic"
 
 [desktop]
 conversationDetailMode = "STEPS_PROSE"
+migratedFollowUpQueueToSteer = true
 show-context-window-usage = true
 
 [desktop.appearanceDarkChromeTheme]
