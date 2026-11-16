@@ -1,5 +1,5 @@
 ---
-name: changelog
+name: dev:changelog
 description:
     Maintain a user-facing CHANGELOG.md. Normalize existing entries or reconcile a changelog section with Git changes,
     including changes in version-pinned dependencies. Use for changelog reviews, normalization, and updates.
