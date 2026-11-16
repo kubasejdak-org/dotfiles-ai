@@ -18,6 +18,16 @@ Read `CHANGELOG.md` and follow [references/format.md](references/format.md). If 
 suggest, do not edit files. If asked to normalize or update, apply clear changes and show the resulting diff. Ask before
 changes requiring clarification, while preserving unresolved entries.
 
+Before finishing an update or normalization, confirm:
+
+- `## Unreleased` exists first,
+- no dates in headings,
+- no version-bump entries for first-party dependencies,
+- every changed dependency pin was resolved into behavior,
+- the verification step passed.
+
+Decide defaults yourself (for example backfilling releases) and ask only when a baseline or tag is missing or ambiguous.
+
 Change or recommend changing the changelog only when needed to correct a substantive issue or meet these conventions.
 Preserve entries that are already accurate, clear, and compliant; do not rephrase them merely to sound different. With
 unchanged inputs, repeating the skill should produce no further edits or recommendations. If no changes are needed, say
