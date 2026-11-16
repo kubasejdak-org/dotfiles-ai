@@ -3,6 +3,7 @@
     "allow": ["Bash", "Edit", "MultiEdit", "WebFetch", "WebSearch", "Write"],
     "deny": []
   },
+  "model": "sonnet",
   "hooks": {
     "SessionStart": [
       {
@@ -30,5 +31,12 @@
   "theme": "dark",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "model": "sonnet"
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  }
 }

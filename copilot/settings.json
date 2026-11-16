@@ -41,7 +41,7 @@
       }
     ]
   },
-  "model": "claude-sonnet-5",
+  "model": "claude-sonnet-5.5",
   "planContextTier": "long_context",
   "planEffortLevel": "high",
   "planModel": "claude-opus-5.5",
