@@ -27,10 +27,6 @@
     "context7@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
-  "tui": "fullscreen",
-  "theme": "dark",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
@@ -38,5 +34,14 @@
         "repo": "anthropics/claude-plugins-official"
       }
     }
-  }
+  },
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": false
 }
